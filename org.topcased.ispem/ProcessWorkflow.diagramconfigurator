@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagramconfigurator:DiagramConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diagramconfigurator="http://www.topcased.org/diagramconfigurator/0.10" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmi:id="_VDvxEMWvEeOaGLeJJICaew" projectName="org.topcased.modeler.ispem.ProcessWF" name="ProcessWorkflow" package="org.topcased.modeler.ispem.ProcessWF" prefix="ProcessWF">
+  <palette xmi:id="_oTckQMZsEeOkFebLjfx5SQ" name="Palette">
+    <paletteCategories xmi:id="_2MLOoMZsEeOkFebLjfx5SQ" name="Node">
+      <items xmi:id="_N4RBUMbtEeOkFebLjfx5SQ" name="Create Activity" part="_qECfgcZpEeOkFebLjfx5SQ"/>
+    </paletteCategories>
+    <paletteCategories xmi:id="_QJ-5YMb6EeOkFebLjfx5SQ" name="Edge">
+      <items xmi:id="_RU7pkMb6EeOkFebLjfx5SQ" name="Edge" part="_uLy_EMZpEeOkFebLjfx5SQ"/>
+    </paletteCategories>
+  </palette>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_qECfgcZpEeOkFebLjfx5SQ" object="_mip0gMZKEeOrPsrIp2QWGQ" type="Graphic With Bottom Label"/>
+  <parts xsi:type="diagramconfigurator:EdgePartConfiguration" xmi:id="_uLy_EMZpEeOkFebLjfx5SQ" object="_s5xHkMZKEeOrPsrIp2QWGQ" defaultForegroundColor="0,64,128" targetDecoration="ARROW">
+    <sourceTargetCouple xmi:id="_3UYewMZqEeOkFebLjfx5SQ" containerType="SOURCE" sourceNode="_qECfgcZpEeOkFebLjfx5SQ" targetNode="_qECfgcZpEeOkFebLjfx5SQ">
+      <containerObject href="Models/ispem.genmodel#//ispem/Activity"/>
+      <containerRef xsi:type="ecore:EReference" href="Models/spem2.ecore#//WorkBreakdownElement/linkToSuccessor"/>
+      <refSourceToEdge xsi:type="ecore:EReference" href="Models/spem2.ecore#//WorkBreakdownElement/linkToPredecessor"/>
+      <refEdgeToSource xsi:type="ecore:EReference" href="Models/spem2.ecore#//WorkSequence/predecessor"/>
+      <refTargetToEdge xsi:type="ecore:EReference" href="Models/spem2.ecore#//WorkBreakdownElement/linkToPredecessor"/>
+      <refEdgeToTarget xsi:type="ecore:EReference" href="Models/spem2.ecore#//WorkSequence/predecessor"/>
+      <refSourceToTarget xsi:type="ecore:EReference" href="Models/spem2.ecore#//VariabilityElement/variabilityBasedOnElement"/>
+      <refTargetToSource xsi:type="ecore:EReference" href="Models/spem2.ecore#//VariabilityElement/variabilityBasedOnElement"/>
+    </sourceTargetCouple>
+  </parts>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_B8ODIMZKEeOrPsrIp2QWGQ">
+    <genClass href="Models/ispem.genmodel#//ispem/Process"/>
+    <diagrams xmi:id="_6A4jAMbzEeOkFebLjfx5SQ" diagram="_VDvxEMWvEeOaGLeJJICaew"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_mip0gMZKEeOrPsrIp2QWGQ">
+    <genClass href="Models/ispem.genmodel#//ispem/Activity"/>
+    <diagrams xmi:id="_3PWioMcLEeOkFebLjfx5SQ">
+      <diagram href="ActivityWorkflow.diagramconfigurator#_jvJ5cMcLEeOkFebLjfx5SQ"/>
+    </diagrams>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_s5xHkMZKEeOrPsrIp2QWGQ">
+    <genClass href="Models/ispem.genmodel#//spem/WorkSequence"/>
+  </objects>
+  <genModel href="Models/ispem.genmodel#/"/>
+  <templateRootObject href="Models/ispem.genmodel#//ispem/Process"/>
+  <editorConfigurator href="iSpem.editorconfigurator#_sWrKUbzCEeOiz_iWbv7YrQ"/>
+</diagramconfigurator:DiagramConfiguration>

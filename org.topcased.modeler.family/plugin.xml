@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            class="org.topcased.modeler.family.editor.FamilyEditor"
+            icon="icons/Family.gif"
+            default="true"
+            name="Family"
+            id="org.topcased.modeler.family.editor.FamilyEditor"
+            contributorClass="org.topcased.modeler.family.actions.FamilyEditorActionBarContributor"
+            extensions="familydi">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            icon="icons/Family.gif"
+            class="org.topcased.modeler.family.wizards.NewFamilyDiagrams"
+            category="org.topcased.facilities.newWizards/org.topcased.modeler.newdiagram"
+            name="Family Diagram"
+            id="org.topcased.modeler.family.wizards.NewFamilyDiagrams">
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+   
+   <extension point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="org.topcased.modeler.perspective">
+         <newWizardShortcut id="org.topcased.modeler.family.wizards.NewFamilyDiagrams"/>
+      </perspectiveExtension>
+   </extension>
+   
+   <extension point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.topcased.modeler.preferences.ModelerPreferencePage"
+            class="org.topcased.modeler.family.preferences.FamilyPreferencePage"
+            id="org.topcased.modeler.family.preferences.FamilyPreferencePage"
+            name="Family"/>
+   </extension>
+   
+	<extension point="org.eclipse.ui.propertyPages">
+		<page
+			id="org.topcased.modeler.family.preferences.property.FamilyPreferencePage"
+			class="org.topcased.modeler.family.preferences.FamilyPreferencePage"
+			category="org.topcased.modeler.preferences.property.ModelerPreferencePage"
+			name="Family">
+			<enabledWhen>
+				<adapt type="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+		</page>
+	</extension>
+   
+   	<extension point="org.eclipse.core.runtime.preferences">
+		<initializer class="org.topcased.modeler.family.preferences.AllDiagramPreferenceInitializer"/>
+	</extension>
+	
+</plugin>

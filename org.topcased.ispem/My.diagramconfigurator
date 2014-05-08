@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagramconfigurator:DiagramConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:diagramconfigurator="http://www.topcased.org/diagramconfigurator/0.10" xmi:id="_PzbMoMlBEeO5Rf5NqdHTYw">
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_Tm1z4MlBEeO5Rf5NqdHTYw">
+    <genClass href="../org.topcased.spem/Models/spem2.genmodel#//spem/uma/CapabilityPattern"/>
+  </objects>
+</diagramconfigurator:DiagramConfiguration>

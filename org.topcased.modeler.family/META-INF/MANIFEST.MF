@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Family
+Bundle-SymbolicName: org.topcased.modeler.family; singleton:=true
+Bundle-Version: 2.5.1.201305291311
+Bundle-Activator: org.topcased.modeler.family.FamilyPlugin
+Bundle-Vendor: Topcased
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore.edit,
+ org.eclipse.ui.ide,
+ org.eclipse.emf.edit.ui,
+ family.edit,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.emf.edit,
+ family,
+ org.eclipse.core.resources,
+ org.topcased.modeler
+Eclipse-LazyStart: true
+Export-Package: org.topcased.modeler.family
