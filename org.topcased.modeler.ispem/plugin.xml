@@ -54,5 +54,13 @@
    	<extension point="org.eclipse.core.runtime.preferences">
 		<initializer class="org.topcased.modeler.ispem.preferences.AllDiagramPreferenceInitializer"/>
 	</extension>
+    <extension
+          point="org.topcased.modeler.templates">
+       <template
+             editorId="org.topcased.modeler.ispem.template1"
+             id="org.topcased.modeler.ispem.template1"
+             isDiagram="true">
+       </template>
+    </extension>
 	
 </plugin>

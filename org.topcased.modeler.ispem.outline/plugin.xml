@@ -5,7 +5,7 @@
    name="iSPEM outline"
    version="1.0"
    provider-name="Topcased"
-   class="org.topcased.modeler.ispem.outline.org.topcased.modeler.ispem.outline">
+   class="org.topcased.modeler.ispem.outline.Outline">
 
    <runtime>
       <library name="org.topcased.modeler.ispem.outline.jar">
