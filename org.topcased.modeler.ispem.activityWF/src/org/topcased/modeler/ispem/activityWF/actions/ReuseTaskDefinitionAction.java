@@ -65,6 +65,7 @@ import org.topcased.spem.SpemFactory;
 import org.topcased.spem.TaskDefinition;
 import org.topcased.spem.TaskUse;
 import org.topcased.spem.WorkProductDefinition;
+import org.topcased.spem.WorkProductUse;
 import org.topcased.ispem.Artifact;
 import org.topcased.spem.impl.SpemFactoryImpl;
 import org.topcased.spem.impl.TaskUseImpl;
@@ -287,7 +288,9 @@ public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
 							{
 								TaskDefinition selTaskDefinition = (TaskDefinition) selection[0];
 								
-								createTaskUse(selTaskDefinition);
+								TaskUse taskUse = createTaskUse(selTaskDefinition);
+								createRoleUseFromTaskUse(taskUse);
+								createArtifactFromTaskUse(taskUse);
 							}
 						}
 		}
@@ -430,6 +433,25 @@ public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
 					
 					GraphElement graphElement = factory.createGraphElement(processPerformer);
 					modeler.getActiveDiagram().getContained().add(graphElement);
+					
+					RestoreConnectionsRequest request = new RestoreConnectionsRequest();
+					
+					EditPart diagramEP = modeler.getGraphicalViewer().getContents();
+					EditPart taskUseEP = null;
+				
+					for (EditPart graphElementEP : (List<EditPart>)diagramEP.getChildren())
+					{
+						
+						if(Utils.getElement((GraphElement) graphElementEP.getModel())== taskUse)
+						{
+							taskUseEP = graphElementEP;
+							
+						}
+						
+					}
+					Command cmd = taskUseEP.getCommand(request);
+					((CommandStack) modeler.getAdapter(CommandStack.class))
+					.execute(cmd);
 				
 				}
 				
@@ -443,13 +465,13 @@ public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
 		TaskDefinition taskDefinition = taskUse.getTask();
 		TaskDefinitionPackage taskDefinitionPkg = (TaskDefinitionPackage) taskDefinition.eContainer();
 		Activity activity = (Activity) taskUse.eContainer();
-		List<Artifact> lstArtifactUse = new ArrayList<Artifact>();
+		List<WorkProductUse> lstArtifactUse = new ArrayList<WorkProductUse>();
 		ICreationUtils factory = modeler.getActiveConfiguration().getCreationUtils();
 		 for (BreakdownElement bdElement: (List<BreakdownElement>)activity.getNestedBreakdownElement())
 			{
-				if (bdElement instanceof Artifact)
+				if (bdElement instanceof WorkProductUse)
 				{
-					Artifact artifact = (Artifact) bdElement;
+					WorkProductUse artifact = (WorkProductUse) bdElement;
 					lstArtifactUse.add(artifact);
 				}
 			}
@@ -460,8 +482,8 @@ public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
 			WorkProductDefinition wpDefinition = taskDefPara.getParameterType();
 			if(wpDefinition!=null)
 			{
-				Artifact artifact = null;
-				for(Artifact element:lstArtifactUse)
+				WorkProductUse artifact = null;
+				for(WorkProductUse element:lstArtifactUse)
 				{
 					if(element.getWorkProduct()==wpDefinition)
 					{

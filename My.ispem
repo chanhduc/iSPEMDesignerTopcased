@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ispem:ISPEMMethodLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ispem="http://www.topcased.org/ispem" xmlns:uma="http://www.thalesgroup.com/spem/2.0/uma">
+  <ownedMethodPlugin name="My.ispem">
+    <ownedMethodContentPackage name="Method content">
+      <ownedMethodContentMember xsi:type="uma:CategoryPackage" name="Standard Categories">
+        <ownedMethodContentMember xsi:type="uma:DomainPackage" name="Domains"/>
+        <ownedMethodContentMember xsi:type="uma:DisciplinePackage" name="Disciplines"/>
+        <ownedMethodContentMember xsi:type="uma:WorkProductKindPackage" name="Work Product Kinds"/>
+        <ownedMethodContentMember xsi:type="uma:QualificationPackage" name="Qualifications"/>
+        <ownedMethodContentMember xsi:type="uma:RoleSetPackage" name="Role Sets"/>
+        <ownedMethodContentMember xsi:type="uma:ToolDefinitionPackage" name="Tools"/>
+        <ownedMethodContentMember xsi:type="ispem:RepresentLanguagePackage" name="Representation Language">
+          <ownedMethodContentMember xsi:type="ispem:RepresentativeLanguage" name="C source code" uri="http://www.ispem.org/ontology/representationLanguage.owl#RepresentationLanguage_CSourceCode"/>
+          <ownedMethodContentMember xsi:type="ispem:RepresentativeLanguage" name="SysML" uri="http://www.ispem.org/ontology/representationLanguage.owl#RepresentationLanguage_SysML"/>
+          <ownedMethodContentMember xsi:type="ispem:RepresentativeLanguage" name="UML" uri="http://www.ispem.org/ontology/representationLanguage.owl#RepresentationLanguage_UML"/>
+        </ownedMethodContentMember>
+        <ownedMethodContentMember xsi:type="ispem:EngineeringDomainPackage" name="Engineering Domain Package">
+          <ownedMethodContentMember xsi:type="ispem:EngineeringDomain" uri="http://www.ispem.org/ontology/domain/di.owl#EngineeringDomain_DI" name="D&amp;I Domain">
+            <viewpoints uri="http://www.ispem.org/ontology/domain/di.owl#Viewpoint_Application" name="Application" caracterizes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.1"/>
+            <viewpoints briefDescription="" uri="http://www.ispem.org/ontology/domain/di.owl#Viewpoint_Architecture" name="Architecture" caracterizes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.2"/>
+            <viewpoints uri="http://www.ispem.org/ontology/domain/di.owl#Viewpoint_Mapping" name="Mapping" caracterizes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.0"/>
+          </ownedMethodContentMember>
+        </ownedMethodContentMember>
+        <ownedMethodContentMember xsi:type="ispem:DevelopmentMethodPackage" name="Development Method Package">
+          <ownedMethodContentMember xsi:type="ispem:DevelopmentMethod" uri="http://www.ispem.org/ontology/method/mopcom.owl#Method_MopCom" name="MopCom" supports="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.0/@ownedMethodContentMember.7/@ownedMethodContentMember.0/@viewpoints.0 //@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.0/@ownedMethodContentMember.7/@ownedMethodContentMember.0/@viewpoints.1 //@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.0/@ownedMethodContentMember.7/@ownedMethodContentMember.0/@viewpoints.2"/>
+          <ownedMethodContentMember xsi:type="ispem:DevelopmentMethod" uri="http://www.ispem.org/ontology/method/bluebee.owl#Method_BlueBee" name="Bluebee" supports="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.0/@ownedMethodContentMember.7/@ownedMethodContentMember.0/@viewpoints.0 //@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.0/@ownedMethodContentMember.7/@ownedMethodContentMember.0/@viewpoints.1 //@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.0/@ownedMethodContentMember.7/@ownedMethodContentMember.0/@viewpoints.2"/>
+        </ownedMethodContentMember>
+        <ownedMethodContentMember xsi:type="uma:CategoryPackage" name="Custom Categories"/>
+        <ownedMethodContentMember xsi:type="ispem:MetaModelPackage"/>
+      </ownedMethodContentMember>
+      <ownedMethodContentMember xsi:type="ispem:DomainContentPackage" name="D&amp;I Package" relatedDomain="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.0/@ownedMethodContentMember.7/@ownedMethodContentMember.0">
+        <ownedMethodContentMember xsi:type="uma:RoleDefinitionPackage" name="Roles"/>
+        <ownedMethodContentMember xsi:type="uma:TaskDefinitionPackage" name="Tasks">
+          <ownedMethodContentMember xsi:type="ispem:DomainTaskDefinition" uri="http://www.ispem.org/ontology/domain/di.owl#DomainActivity_ApplicationDefinition" name="Applicate definition" specializes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.1/@ownedMethodContentMember.0">
+            <ownedTaskDefinitionParameter direction="out" parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.1"/>
+          </ownedMethodContentMember>
+          <ownedMethodContentMember xsi:type="ispem:DomainTaskDefinition" uri="http://www.ispem.org/ontology/domain/di.owl#DomainActivity_MappingDefinition" name="Mapping definition" specializes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.1/@ownedMethodContentMember.1">
+            <ownedTaskDefinitionParameter parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.1"/>
+            <ownedTaskDefinitionParameter parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.2"/>
+            <ownedTaskDefinitionParameter direction="out" parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.0"/>
+          </ownedMethodContentMember>
+          <ownedMethodContentMember xsi:type="ispem:DomainTaskDefinition" uri="http://www.ispem.org/ontology/domain/di.owl#DomainActivity_ArchitectureDefinition" name="Architecture Definition" specializes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.1/@ownedMethodContentMember.2">
+            <ownedTaskDefinitionParameter direction="out" parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.2"/>
+          </ownedMethodContentMember>
+          <ownedMethodContentMember xsi:type="ispem:DomainTaskDefinition" uri="http://www.ispem.org/ontology/domain/di.owl#DomainActivity_SystemGeneration" name="System generation" specializes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.5/@ownedMethodContentMember.1/@ownedMethodContentMember.0">
+            <ownedTaskDefinitionParameter parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.0"/>
+            <ownedTaskDefinitionParameter parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.1"/>
+            <ownedTaskDefinitionParameter parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.2"/>
+          </ownedMethodContentMember>
+        </ownedMethodContentMember>
+        <ownedMethodContentMember xsi:type="uma:WorkProductDefinitionPackage" name="Work Products">
+          <ownedMethodContentMember xsi:type="ispem:DomainArtifactDefinition" uri="http://www.ispem.org/ontology/domain/di.owl#MappingModel_Def" name="Mapping model definition" specializes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.5/@ownedMethodContentMember.2/@ownedMethodContentMember.1 //@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.1" organized="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.0/@ownedMethodContentMember.7/@ownedMethodContentMember.0/@viewpoints.2"/>
+          <ownedMethodContentMember xsi:type="ispem:DomainArtifactDefinition" uri="http://www.ispem.org/ontology/domain/di.owl#ApplicationModel_Def" name="Application Model Definition" specializes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.5/@ownedMethodContentMember.2/@ownedMethodContentMember.3 //@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.0" organized="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.0/@ownedMethodContentMember.7/@ownedMethodContentMember.0/@viewpoints.0"/>
+          <ownedMethodContentMember xsi:type="ispem:DomainArtifactDefinition" uri="http://www.ispem.org/ontology/domain/di.owl#ArchitectureModel_Def" name="Architecture Model Definition" specializes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.5/@ownedMethodContentMember.2/@ownedMethodContentMember.0 //@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.2" organized="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.0/@ownedMethodContentMember.7/@ownedMethodContentMember.0/@viewpoints.1"/>
+        </ownedMethodContentMember>
+        <ownedMethodContentMember xsi:type="uma:GuidancePackage" name="Guidances"/>
+        <ownedMethodContentMember xsi:type="ispem:DevelopmentMethodContentPackage" name="MopCom package" relatedMethod="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.0/@ownedMethodContentMember.8/@ownedMethodContentMember.0">
+          <ownedMethodContentMember xsi:type="uma:RoleDefinitionPackage" name="Roles"/>
+          <ownedMethodContentMember xsi:type="uma:TaskDefinitionPackage" name="Tasks">
+            <ownedMethodContentMember xsi:type="ispem:MethodTaskDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#MethodActivity_MopComLogicalArchitectureDefinition" name="MopCom logical architecuter definition" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.1/@ownedMethodContentMember.0" specializes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.5/@ownedMethodContentMember.1/@ownedMethodContentMember.0 //@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.4/@ownedMethodContentMember.1/@ownedMethodContentMember.2">
+              <ownedTaskDefinitionParameter direction="out" parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.0"/>
+            </ownedMethodContentMember>
+            <ownedMethodContentMember xsi:type="ispem:MethodTaskDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#MethodActivity_MoPComAllocationDefinition" name="MoPCom allocation definition" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.1/@ownedMethodContentMember.1" specializes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.4/@ownedMethodContentMember.1/@ownedMethodContentMember.0 //@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.5/@ownedMethodContentMember.1/@ownedMethodContentMember.2">
+              <ownedTaskDefinitionParameter parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.0"/>
+              <ownedTaskDefinitionParameter parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.2"/>
+              <ownedTaskDefinitionParameter direction="out" parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.1"/>
+            </ownedMethodContentMember>
+            <ownedMethodContentMember xsi:type="ispem:MethodTaskDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#MethodActivity_MoPComPlatformDefinition" name="MoPCom platform definition" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.1/@ownedMethodContentMember.2" specializes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.4/@ownedMethodContentMember.1/@ownedMethodContentMember.1 //@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.5/@ownedMethodContentMember.1/@ownedMethodContentMember.1">
+              <ownedTaskDefinitionParameter direction="out" parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.2"/>
+            </ownedMethodContentMember>
+          </ownedMethodContentMember>
+          <ownedMethodContentMember xsi:type="uma:WorkProductDefinitionPackage" name="Work Products">
+            <ownedMethodContentMember xsi:type="ispem:MethodArtifactDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#LogicalArchiteure_Def" name="MopCom Logical Architecture" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.1" specializes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.5/@ownedMethodContentMember.2/@ownedMethodContentMember.2 //@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.0"/>
+            <ownedMethodContentMember xsi:type="ispem:MethodArtifactDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#Allocation_Def" name="MopCom Allocation" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.0" specializes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.1 //@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.5/@ownedMethodContentMember.2/@ownedMethodContentMember.0"/>
+            <ownedMethodContentMember xsi:type="ispem:MethodArtifactDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#Platform_Def" name="MopCom Platform" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.2" specializes="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.5/@ownedMethodContentMember.2/@ownedMethodContentMember.1"/>
+          </ownedMethodContentMember>
+          <ownedMethodContentMember xsi:type="uma:GuidancePackage" name="Guidances"/>
+          <ownedMethodContentMember xsi:type="ispem:DevelopmentMethodWithLanguageContentPackage" name="MopCom UML Package">
+            <ownedMethodContentMember xsi:type="uma:RoleDefinitionPackage" name="Roles"/>
+            <ownedMethodContentMember xsi:type="uma:TaskDefinitionPackage" name="Tasks">
+              <ownedMethodContentMember xsi:type="ispem:LanguageTaskDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#MopCom_AllocationUML_Definition" name="MopCom AllocationUML Definition" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.1/@ownedMethodContentMember.1">
+                <ownedTaskDefinitionParameter parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.0"/>
+                <ownedTaskDefinitionParameter parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.2"/>
+                <ownedTaskDefinitionParameter direction="out" parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.1"/>
+              </ownedMethodContentMember>
+              <ownedMethodContentMember xsi:type="ispem:LanguageTaskDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#MopCom_plateformUML_Definition" name="MopCom plateformUML definition" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.1/@ownedMethodContentMember.2">
+                <ownedTaskDefinitionParameter direction="out" parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.2"/>
+              </ownedMethodContentMember>
+              <ownedMethodContentMember xsi:type="ispem:LanguageTaskDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#LanguageActivity_MopCom_LogicalArchitectureUML_Definition" name="MopCom Logical Architecture UML Definition" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.1/@ownedMethodContentMember.0">
+                <ownedTaskDefinitionParameter direction="out" parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.0"/>
+              </ownedMethodContentMember>
+            </ownedMethodContentMember>
+            <ownedMethodContentMember xsi:type="uma:WorkProductDefinitionPackage" name="Work Products">
+              <ownedMethodContentMember xsi:type="ispem:LanguageArtifactDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#MopCom_LogicalArchitectureUML_Def" name="MopCom Logical Architecture UML" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.0"/>
+              <ownedMethodContentMember xsi:type="ispem:LanguageArtifactDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#MopCom_AllocationUML_Def" name="MopCom Allocation UML" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.1"/>
+              <ownedMethodContentMember xsi:type="ispem:LanguageArtifactDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#MopCom_PlatformUML_Def" name="Platform UML"/>
+            </ownedMethodContentMember>
+            <ownedMethodContentMember xsi:type="uma:GuidancePackage" name="Guidances"/>
+          </ownedMethodContentMember>
+          <ownedMethodContentMember xsi:type="ispem:DevelopmentMethodWithLanguageContentPackage" name="MopCom SysML package">
+            <ownedMethodContentMember xsi:type="uma:RoleDefinitionPackage" name="Roles"/>
+            <ownedMethodContentMember xsi:type="uma:TaskDefinitionPackage" name="Tasks">
+              <ownedMethodContentMember xsi:type="ispem:LanguageTaskDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#MopCom_LogicalArchitectureSysML_Definition" name="MopCom Logical Architecture SysML Definition" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.1/@ownedMethodContentMember.0">
+                <ownedTaskDefinitionParameter direction="out" parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.5/@ownedMethodContentMember.2/@ownedMethodContentMember.2"/>
+              </ownedMethodContentMember>
+              <ownedMethodContentMember xsi:type="ispem:LanguageTaskDefinition" name="MopCom Platform SysML Definition" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.1/@ownedMethodContentMember.2">
+                <ownedTaskDefinitionParameter direction="out" parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.5/@ownedMethodContentMember.2/@ownedMethodContentMember.1"/>
+              </ownedMethodContentMember>
+              <ownedMethodContentMember xsi:type="ispem:LanguageTaskDefinition" name="MopCom Allocation SysML Definition" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.1/@ownedMethodContentMember.1">
+                <ownedTaskDefinitionParameter parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.5/@ownedMethodContentMember.2/@ownedMethodContentMember.2"/>
+                <ownedTaskDefinitionParameter parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.5/@ownedMethodContentMember.2/@ownedMethodContentMember.1"/>
+                <ownedTaskDefinitionParameter direction="out" parameterType="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.5/@ownedMethodContentMember.2/@ownedMethodContentMember.0"/>
+              </ownedMethodContentMember>
+            </ownedMethodContentMember>
+            <ownedMethodContentMember xsi:type="uma:WorkProductDefinitionPackage" name="Work Products">
+              <ownedMethodContentMember xsi:type="ispem:LanguageArtifactDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#MopCom_AllocationSysML_Def" name="MopCom Allocation SysML" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.1"/>
+              <ownedMethodContentMember xsi:type="ispem:LanguageArtifactDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#MopCom_PlatformSysML_Def" name="MopCom Platform SysML" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.2"/>
+              <ownedMethodContentMember xsi:type="ispem:LanguageArtifactDefinition" uri="http://www.ispem.org/ontology/method/mopcom.owl#MopCom_LogicalArchitectureSysML_Def" name="MopCom Logical Architecture SysML" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.4/@ownedMethodContentMember.2/@ownedMethodContentMember.0"/>
+            </ownedMethodContentMember>
+            <ownedMethodContentMember xsi:type="uma:GuidancePackage" name="Guidances"/>
+          </ownedMethodContentMember>
+        </ownedMethodContentMember>
+        <ownedMethodContentMember xsi:type="ispem:DevelopmentMethodContentPackage" name="Bluebee method" relatedMethod="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.0/@ownedMethodContentMember.8/@ownedMethodContentMember.1">
+          <ownedMethodContentMember xsi:type="uma:RoleDefinitionPackage" name="Roles"/>
+          <ownedMethodContentMember xsi:type="uma:TaskDefinitionPackage" name="Tasks">
+            <ownedMethodContentMember xsi:type="ispem:MethodTaskDefinition" uri="http://www.ispem.org/ontology/method/bluebee.owl#MethodActivity_SystemGeneration" name="Bluebee system generation" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.1/@ownedMethodContentMember.3">
+              <ownedTaskDefinitionParameter/>
+              <ownedTaskDefinitionParameter/>
+              <ownedTaskDefinitionParameter/>
+            </ownedMethodContentMember>
+          </ownedMethodContentMember>
+          <ownedMethodContentMember xsi:type="uma:WorkProductDefinitionPackage" name="Work Products">
+            <ownedMethodContentMember xsi:type="ispem:MethodArtifactDefinition" uri="http://www.ispem.org/ontology/method/bluebee.owl#Organization_Def" name="Bluebee organization definition" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.2"/>
+            <ownedMethodContentMember xsi:type="ispem:MethodArtifactDefinition" uri="http://www.ispem.org/ontology/method/bluebee.owl#Mapping_Def" name="Bluebee mapping definition" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.0"/>
+            <ownedMethodContentMember xsi:type="ispem:MethodArtifactDefinition" uri="http://www.ispem.org/ontology/method/bluebee.owl#SourceCode_Def" name="BlueBee SourceCode_Def"/>
+            <ownedMethodContentMember xsi:type="ispem:MethodArtifactDefinition" uri="http://www.ispem.org/ontology/method/bluebee.owl#ApplicationModel_Def" name="Bluebee application definition" specializedBy="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.1/@ownedMethodContentMember.2/@ownedMethodContentMember.1"/>
+          </ownedMethodContentMember>
+          <ownedMethodContentMember xsi:type="uma:GuidancePackage" name="Guidances"/>
+          <ownedMethodContentMember xsi:type="ispem:DevelopmentMethodWithLanguageContentPackage" name="C code package">
+            <ownedMethodContentMember xsi:type="uma:RoleDefinitionPackage" name="Roles"/>
+            <ownedMethodContentMember xsi:type="uma:TaskDefinitionPackage" name="Tasks">
+              <ownedMethodContentMember xsi:type="ispem:LanguageTaskDefinition" uri="http://www.ispem.org/ontology/method/bluebee.owl#System_Generation_C" name="Bluebee System Generation C"/>
+            </ownedMethodContentMember>
+          </ownedMethodContentMember>
+          <ownedMethodContentMember xsi:type="uma:WorkProductDefinitionPackage" name="Work Products">
+            <ownedMethodContentMember xsi:type="ispem:LanguageArtifactDefinition" uri="http://www.ispem.org/ontology/method/bluebee.owl#C_ApplicationModel_Def" name="C Application Model"/>
+            <ownedMethodContentMember xsi:type="ispem:LanguageArtifactDefinition" uri="http://www.ispem.org/ontology/method/bluebee.owl#SourceCodeC_Def" name="SourceCodeC_Def"/>
+            <ownedMethodContentMember xsi:type="ispem:LanguageArtifactDefinition" uri="http://www.ispem.org/ontology/method/bluebee.owl#MappingXML_Def" name="MappingXML"/>
+            <ownedMethodContentMember xsi:type="ispem:LanguageArtifactDefinition" uri="http://www.ispem.org/ontology/method/bluebee.owl#OrganizationXML_Def" name="OrganizationXML"/>
+          </ownedMethodContentMember>
+          <ownedMethodContentMember xsi:type="uma:GuidancePackage" name="Guidances"/>
+        </ownedMethodContentMember>
+      </ownedMethodContentMember>
+    </ownedMethodContentPackage>
+    <ownedProcessPackage name="Processes">
+      <ownedProcessMember xsi:type="uma:CapabilityPatternPackage" name="Capability Patterns">
+        <ownedProcessMember xsi:type="ispem:Process" name="D&amp;I Process">
+          <nestedBreakdownElement xsi:type="ispem:Activity" name="Activity1" context="//@ownedMethodPlugin.0/@ownedMethodContentPackage.0/@ownedMethodContentMember.0/@ownedMethodContentMember.7/@ownedMethodContentMember.0"/>
+        </ownedProcessMember>
+      </ownedProcessMember>
+      <ownedProcessMember xsi:type="uma:ProcessComponentPackage" name="Process Components"/>
+      <ownedProcessMember xsi:type="uma:DeliveryProcessPackage" name="Delivery Processes"/>
+    </ownedProcessPackage>
+  </ownedMethodPlugin>
+  <configurationPackage xsi:type="uma:ConfigurationPackage" name="Configurations"/>
+</ispem:ISPEMMethodLibrary>
