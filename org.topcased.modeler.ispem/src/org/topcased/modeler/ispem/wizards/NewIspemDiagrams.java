@@ -24,6 +24,7 @@ import org.topcased.modeler.extensions.TemplatesManager;
 import org.topcased.modeler.ispem.IspemImageRegistry;
 import org.topcased.modeler.ispem.IspemPlugin;
 import org.topcased.modeler.tools.DiagramFileInitializer;
+
 import org.topcased.modeler.wizards.DiagramsPage;
 
 /**
@@ -171,12 +172,13 @@ public class NewIspemDiagrams extends Wizard implements INewWizard {
 		try {
 			Template template = TemplatesManager.getInstance()
 					.find(diagPage.getTemplateId()).getTemplateDI();
+			
 			template.setDestination(diagPage.getSelectedIContainer());
 			template.addVariable("name", diagPage.getModelName());
 			// Bug #1395 : Add an additional variable used to encode the model file name
 			template.addVariable("escapedName",
 					URI.encodeFragment(diagPage.getModelName(), false));
-
+			
 			createdFile = (IFile) template.generate(new NullProgressMonitor());
 		} catch (CoreException ce) {
 			IspemPlugin.log(ce);
@@ -187,4 +189,5 @@ public class NewIspemDiagrams extends Wizard implements INewWizard {
 		}
 		return true;
 	}
+	
 }

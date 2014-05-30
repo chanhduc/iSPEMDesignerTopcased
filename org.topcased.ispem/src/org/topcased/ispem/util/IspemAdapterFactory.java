@@ -8,11 +8,8 @@ package org.topcased.ispem.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.topcased.ispem.Activity;
 import org.topcased.ispem.Artifact;
 import org.topcased.ispem.ArtifactDefinition;
@@ -29,6 +26,7 @@ import org.topcased.ispem.EClassesRelation;
 import org.topcased.ispem.EReferencesRelation;
 import org.topcased.ispem.EngineeringDomain;
 import org.topcased.ispem.EngineeringDomainPackage;
+import org.topcased.ispem.ISPEMMethodLibrary;
 import org.topcased.ispem.ISPEM;
 import org.topcased.ispem.IspemPackage;
 import org.topcased.ispem.LanguageArtifactDefinition;
@@ -38,13 +36,11 @@ import org.topcased.ispem.MetaModelPackage;
 import org.topcased.ispem.MethodArtifactDefinition;
 import org.topcased.ispem.MethodTaskDefinition;
 import org.topcased.ispem.OntologyLinkedElement;
-import org.topcased.ispem.RepresentLanguage;
 import org.topcased.ispem.RepresentLanguagePackage;
 import org.topcased.ispem.RepresentativeLanguage;
 import org.topcased.ispem.TaskDefinition;
 import org.topcased.ispem.ToolDefinition;
 import org.topcased.ispem.Viewpoint;
-
 import org.topcased.ispem.WorkProductDefinition;
 import org.topcased.spem.BreakdownElement;
 import org.topcased.spem.Category;
@@ -62,7 +58,6 @@ import org.topcased.spem.VariabilityElement;
 import org.topcased.spem.WorkBreakdownElement;
 import org.topcased.spem.WorkDefinition;
 import org.topcased.spem.WorkProductUse;
-
 import org.topcased.spem.uma.CapabilityPattern;
 import org.topcased.spem.uma.CategoryPackage;
 import org.topcased.spem.uma.WorkProductDefinitionPackage;
@@ -137,8 +132,8 @@ public class IspemAdapterFactory extends AdapterFactoryImpl {
 			public Object caseWorkProductDefinition(WorkProductDefinition object) {
 				return createWorkProductDefinitionAdapter();
 			}
-			public Object caseISPEM(ISPEM object) {
-				return createISPEMAdapter();
+			public Object caseISPEMMethodLibrary(ISPEMMethodLibrary object) {
+				return createISPEMMethodLibraryAdapter();
 			}
 			public Object caseDevelopmentMethod(DevelopmentMethod object) {
 				return createDevelopmentMethodAdapter();
@@ -375,20 +370,6 @@ public class IspemAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArtifactDefinitionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.topcased.ispem.ISPEM <em>ISPEM</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.topcased.ispem.ISPEM
-	 * @generated
-	 */
-	public Adapter createISPEMAdapter() {
 		return null;
 	}
 
@@ -865,6 +846,20 @@ public class IspemAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createWorkProductDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.topcased.ispem.ISPEMMethodLibrary <em>ISPEM Method Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.topcased.ispem.ISPEMMethodLibrary
+	 * @generated
+	 */
+	public Adapter createISPEMMethodLibraryAdapter() {
 		return null;
 	}
 

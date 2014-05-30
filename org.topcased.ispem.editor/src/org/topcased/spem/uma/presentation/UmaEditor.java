@@ -167,6 +167,7 @@ import org.topcased.ispem.presentation.IspemEditorPlugin;
 import org.topcased.ispem.provider.IspemItemProviderAdapterFactory;
 
 import org.topcased.spem.activity.provider.ActivityItemProviderAdapterFactory;
+
 import org.topcased.spem.provider.SpemItemProviderAdapterFactory;
 
 

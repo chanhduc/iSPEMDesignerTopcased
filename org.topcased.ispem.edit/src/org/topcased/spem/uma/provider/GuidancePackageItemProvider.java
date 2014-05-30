@@ -21,11 +21,15 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import org.topcased.ispem.IspemFactory;
 import org.topcased.ispem.provider.IspemEditPlugin;
 
+import org.topcased.spem.SpemFactory;
+import org.topcased.spem.SpemPackage;
 import org.topcased.spem.provider.MethodContentPackageItemProvider;
 
 import org.topcased.spem.uma.GuidancePackage;
+import org.topcased.spem.uma.UmaFactory;
 
 /**
  * This is the item provider adapter for a {@link org.topcased.spem.uma.GuidancePackage} object.
@@ -108,7 +112,67 @@ public class GuidancePackageItemProvider
 	 * @generated
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 SpemFactory.eINSTANCE.createGuidance()));
+		
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 UmaFactory.eINSTANCE.createEstimatingConsideration()));
+		
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 UmaFactory.eINSTANCE.createExample()));
+		
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 UmaFactory.eINSTANCE.createPractice()));
+		
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 UmaFactory.eINSTANCE.createReport()));
+		
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 UmaFactory.eINSTANCE.createReusableAsset()));
+		
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 UmaFactory.eINSTANCE.createRoadmap()));
+		
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 UmaFactory.eINSTANCE.createTemplate()));
+		
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 UmaFactory.eINSTANCE.createTermDefinition()));
+		
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 UmaFactory.eINSTANCE.createToolMentor()));
+		
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 UmaFactory.eINSTANCE.createGuideline()));
+		
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 UmaFactory.eINSTANCE.createSupportingMaterial()));
+		
+		
 	}
 
 	/**

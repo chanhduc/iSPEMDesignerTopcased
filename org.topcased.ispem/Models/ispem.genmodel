@@ -35,7 +35,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ispem.ecore#//WorkProductDefinition/usedReferences"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ispem.ecore#//WorkProductDefinition/metamodel"/>
     </genClasses>
-    <genClasses ecoreClass="ispem.ecore#//ISPEM"/>
+    <genClasses ecoreClass="ispem.ecore#//ISPEMMethodLibrary"/>
     <genClasses ecoreClass="ispem.ecore#//DevelopmentMethod">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ispem.ecore#//DevelopmentMethod/supports"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ispem.ecore#//DevelopmentMethod/defines"/>

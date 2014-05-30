@@ -82,11 +82,11 @@ public class IspemModelerProviderAdapterFactory extends IspemAdapterFactory
 	private WorkProductDefinitionModelerProvider workproductdefinitionModelerProvider;
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.topcased.ispem.ISPEM} instances.
+	 * This keeps track of the one adapter used for all {@link org.topcased.ispem.ISPEMMethodLibrary} instances.
 	 * 
 	 * @generated
 	 */
-	private ISPEMModelerProvider ispemModelerProvider;
+	private ISPEMMethodLibraryModelerProvider ispemmethodlibraryModelerProvider;
 
 	/**
 	 * This keeps track of the one adapter used for all {@link org.topcased.ispem.DevelopmentMethod} instances.
@@ -444,17 +444,18 @@ public class IspemModelerProviderAdapterFactory extends IspemAdapterFactory
 	}
 
 	/**
-	 * This creates an adapter for a {@link org.topcased.ispem.ISPEM}.
+	 * This creates an adapter for a {@link org.topcased.ispem.ISPEMMethodLibrary}.
 	 *
 	 * @return the Adapter
 	 * @generated
 	 */
-	public Adapter createISPEMAdapter() {
-		if (ispemModelerProvider == null) {
-			ispemModelerProvider = new ISPEMModelerProvider(this);
+	public Adapter createISPEMMethodLibraryAdapter() {
+		if (ispemmethodlibraryModelerProvider == null) {
+			ispemmethodlibraryModelerProvider = new ISPEMMethodLibraryModelerProvider(
+					this);
 		}
 
-		return ispemModelerProvider;
+		return ispemmethodlibraryModelerProvider;
 	}
 
 	/**
@@ -849,8 +850,8 @@ public class IspemModelerProviderAdapterFactory extends IspemAdapterFactory
 		if (workproductdefinitionModelerProvider != null) {
 			workproductdefinitionModelerProvider.dispose();
 		}
-		if (ispemModelerProvider != null) {
-			ispemModelerProvider.dispose();
+		if (ispemmethodlibraryModelerProvider != null) {
+			ispemmethodlibraryModelerProvider.dispose();
 		}
 		if (developmentmethodModelerProvider != null) {
 			developmentmethodModelerProvider.dispose();

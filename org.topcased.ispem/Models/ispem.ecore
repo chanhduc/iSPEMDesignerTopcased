@@ -32,7 +32,7 @@
         eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EReference"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel" eType="#//MetaModel"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ISPEM" eSuperTypes="spem2.ecore#//MethodLibrary"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ISPEMMethodLibrary" eSuperTypes="spem2.ecore#//MethodLibrary"/>
   <eClassifiers xsi:type="ecore:EClass" name="DevelopmentMethod" eSuperTypes="#//OntologyLinkedElement spem2.ecore#//Category">
     <eStructuralFeatures xsi:type="ecore:EReference" name="supports" upperBound="-1"
         eType="#//Viewpoint"/>

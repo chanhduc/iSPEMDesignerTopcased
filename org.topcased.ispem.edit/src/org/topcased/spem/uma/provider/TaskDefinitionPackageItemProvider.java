@@ -21,8 +21,11 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import org.topcased.ispem.IspemFactory;
 import org.topcased.ispem.provider.IspemEditPlugin;
 
+import org.topcased.spem.SpemFactory;
+import org.topcased.spem.SpemPackage;
 import org.topcased.spem.provider.MethodContentPackageItemProvider;
 
 import org.topcased.spem.uma.TaskDefinitionPackage;
@@ -108,7 +111,24 @@ public class TaskDefinitionPackageItemProvider
 	 * @generated
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
+		
+		
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 IspemFactory.eINSTANCE.createTaskDefinition()));
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 IspemFactory.eINSTANCE.createDomainTaskDefinition()));
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 IspemFactory.eINSTANCE.createMethodTaskDefinition()));
+		newChildDescriptors.add
+		(createChildParameter
+			(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+			 IspemFactory.eINSTANCE.createLanguageTaskDefinition()));
 	}
 
 	/**

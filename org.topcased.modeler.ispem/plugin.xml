@@ -57,9 +57,12 @@
     <extension
           point="org.topcased.modeler.templates">
        <template
-             editorId="org.topcased.modeler.ispem.template1"
-             id="org.topcased.modeler.ispem.template1"
-             isDiagram="true">
+             di="templates/common/%name%.ispemdi"
+             editorId="org.topcased.modeler.ispem.editor.IspemEditor"
+             id="org.topcased.modeler.ispem.templates.Common"
+             isDiagram="false"
+             model="templates/common/%name%.ispem"
+             name="Common">
        </template>
     </extension>
 	

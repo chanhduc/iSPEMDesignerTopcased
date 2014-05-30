@@ -88,4 +88,30 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.topcased.spem.activity.presentation.ActivityModelWizardID"
+            name="%_UI_ActivityModelWizard_label"
+            class="org.topcased.spem.activity.presentation.ActivityModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ActivityModelFile.gif">
+         <description>%_UI_ActivityModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.topcased.spem.activity.presentation.ActivityEditorID"
+            name="%_UI_ActivityEditor_label"
+            icon="icons/full/obj16/ActivityModelFile.gif"
+            extensions="activity"
+            class="org.topcased.spem.activity.presentation.ActivityEditor"
+            contributorClass="org.topcased.spem.activity.presentation.ActivityActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

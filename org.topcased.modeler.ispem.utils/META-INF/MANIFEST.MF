@@ -6,11 +6,10 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.topcased.modeler.ispem.utils.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.topcased.draw2d;bundle-version="2.5.0"
+ org.topcased.draw2d;bundle-version="2.5.0",
+ org.topcased.ispem;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: org.topcased.modeler.ispem.utils,
- org.topcased.modeler.ispem.utils.figures
 Import-Package: org.eclipse.draw2d,
  org.eclipse.draw2d.geometry,
  org.eclipse.gmf.runtime.diagram.ui.figures

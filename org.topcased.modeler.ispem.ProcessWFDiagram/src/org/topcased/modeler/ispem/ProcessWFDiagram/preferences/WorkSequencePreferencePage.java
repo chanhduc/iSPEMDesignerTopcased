@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.topcased.modeler.ispem.IspemPlugin;
+import org.topcased.modeler.ispem.ProcessWFDiagram.ProcessWFDiagramEdgeObjectConstants;
 import org.topcased.modeler.preferences.AbstractEdgePreferencePage;
 
 /**
@@ -49,6 +50,10 @@ public class WorkSequencePreferencePage extends AbstractEdgePreferencePage {
 	protected List<String> getHiddenElements() {
 		List<String> choiceOfValues = new ArrayList<String>();
 		IPreferenceStore ps = getPreferenceStore();
+		if (!ps.getBoolean(ProcessWFDiagramDiagramPreferenceConstants.WORKSEQUENCE_LINKKIND_EDGE_OBJECT_DEFAULT_VISIBILITY)) {
+			choiceOfValues
+					.add(ProcessWFDiagramEdgeObjectConstants.LINKKIND_EDGE_OBJECT_ID);
+		}
 		return choiceOfValues;
 	}
 
@@ -59,6 +64,10 @@ public class WorkSequencePreferencePage extends AbstractEdgePreferencePage {
 	protected List<String> getDefaultHiddenElements() {
 		List<String> choiceOfValues = new ArrayList<String>();
 		IPreferenceStore ps = getPreferenceStore();
+		if (!ps.getDefaultBoolean(ProcessWFDiagramDiagramPreferenceConstants.WORKSEQUENCE_LINKKIND_EDGE_OBJECT_DEFAULT_VISIBILITY)) {
+			choiceOfValues
+					.add(ProcessWFDiagramEdgeObjectConstants.LINKKIND_EDGE_OBJECT_ID);
+		}
 		return choiceOfValues;
 	}
 
@@ -69,6 +78,10 @@ public class WorkSequencePreferencePage extends AbstractEdgePreferencePage {
 	protected List<String> getVisibleElements() {
 		List<String> choiceOfValues = new ArrayList<String>();
 		IPreferenceStore ps = getPreferenceStore();
+		if (ps.getBoolean(ProcessWFDiagramDiagramPreferenceConstants.WORKSEQUENCE_LINKKIND_EDGE_OBJECT_DEFAULT_VISIBILITY)) {
+			choiceOfValues
+					.add(ProcessWFDiagramEdgeObjectConstants.LINKKIND_EDGE_OBJECT_ID);
+		}
 		return choiceOfValues;
 	}
 
@@ -79,6 +92,10 @@ public class WorkSequencePreferencePage extends AbstractEdgePreferencePage {
 	protected List<String> getDefaultVisibleElements() {
 		List<String> choiceOfValues = new ArrayList<String>();
 		IPreferenceStore ps = getPreferenceStore();
+		if (ps.getDefaultBoolean(ProcessWFDiagramDiagramPreferenceConstants.WORKSEQUENCE_LINKKIND_EDGE_OBJECT_DEFAULT_VISIBILITY)) {
+			choiceOfValues
+					.add(ProcessWFDiagramEdgeObjectConstants.LINKKIND_EDGE_OBJECT_ID);
+		}
 		return choiceOfValues;
 	}
 
@@ -86,8 +103,18 @@ public class WorkSequencePreferencePage extends AbstractEdgePreferencePage {
 	 * @see org.topcased.modeler.preferences.AbstractEdgePreferencePage#storeEdgeObjectVisibility(java.util.List)
 	 * @generated
 	 */
-	protected void storeEdgeObjectVisibility(List<String> visibleElement) {
+	protected void storeEdgeObjectVisibility(List visibleElement) {
 		IPreferenceStore ps = getPreferenceStore();
+		if (visibleElement
+				.contains(ProcessWFDiagramEdgeObjectConstants.LINKKIND_EDGE_OBJECT_ID)) {
+			ps.setValue(
+					ProcessWFDiagramDiagramPreferenceConstants.WORKSEQUENCE_LINKKIND_EDGE_OBJECT_DEFAULT_VISIBILITY,
+					true);
+		} else {
+			ps.setValue(
+					ProcessWFDiagramDiagramPreferenceConstants.WORKSEQUENCE_LINKKIND_EDGE_OBJECT_DEFAULT_VISIBILITY,
+					false);
+		}
 	}
 
 	/**

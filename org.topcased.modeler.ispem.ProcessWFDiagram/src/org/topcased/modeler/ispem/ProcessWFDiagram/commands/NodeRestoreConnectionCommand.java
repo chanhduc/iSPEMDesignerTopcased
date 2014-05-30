@@ -4,7 +4,6 @@
 package org.topcased.modeler.ispem.ProcessWFDiagram.commands;
 
 import org.eclipse.gef.EditPart;
-import org.topcased.modeler.commands.AbstractRestoreConnectionCommand;
 
 /**
  * Node restore connection command
@@ -12,7 +11,7 @@ import org.topcased.modeler.commands.AbstractRestoreConnectionCommand;
  * @generated
  */
 public class NodeRestoreConnectionCommand extends
-		AbstractRestoreConnectionCommand {
+		BreakdownElementRestoreConnectionCommand {
 	/**
 	 * @param part the EditPart that is restored
 	 * @generated
@@ -26,6 +25,8 @@ public class NodeRestoreConnectionCommand extends
 	 * @generated
 	 */
 	protected void initializeCommands() {
+
+		super.initializeCommands();
 
 		// Do nothing
 	}

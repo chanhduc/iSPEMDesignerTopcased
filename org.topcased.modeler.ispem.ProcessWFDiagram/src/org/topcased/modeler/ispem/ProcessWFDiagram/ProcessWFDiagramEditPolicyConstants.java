@@ -11,6 +11,12 @@ package org.topcased.modeler.ispem.ProcessWFDiagram;
 public interface ProcessWFDiagramEditPolicyConstants {
 
 	/**
+	 * The key used to install an <i>Edge</i> EditPolicy.
+	 * @generated
+	 */
+	String EDGE_EDITPOLICY = "Edge EditPolicy";
+
+	/**
 	 * The key used to install an <i>Activity</i> EditPolicy.
 	 * @generated
 	 */
@@ -81,5 +87,11 @@ public interface ProcessWFDiagramEditPolicyConstants {
 	 * @generated
 	 */
 	String PROCESSPARAMETERINOUT_EDITPOLICY = "ProcessParameterInOut EditPolicy";
+
+	/**
+	 * The key used to install an <i>BreakdownElement</i> EditPolicy.
+	 * @generated
+	 */
+	String BREAKDOWNELEMENT_EDITPOLICY = "BreakdownElement EditPolicy";
 
 }

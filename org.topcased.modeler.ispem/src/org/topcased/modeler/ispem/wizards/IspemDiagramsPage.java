@@ -53,6 +53,8 @@ public class IspemDiagramsPage extends DiagramsPage {
 				.add(new org.topcased.spem.provider.SpemItemProviderAdapterFactory());
 		factories
 				.add(new org.topcased.spem.uma.provider.UmaItemProviderAdapterFactory());
+		factories
+				.add(new org.topcased.spem.activity.provider.ActivityItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 
@@ -66,8 +68,11 @@ public class IspemDiagramsPage extends DiagramsPage {
 	 */
 	public String getDefaultTemplateId() {
 		// TODO return the corresponding ID of the default template
-		return "";
+		return "org.topcased.modeler.ispem.templates.Common";
 
 	}
-
+	public String getDefaultTemplateModelId()
+    {
+        return "org.topcased.modeler.ispem.templates.Common";
+    }
 }

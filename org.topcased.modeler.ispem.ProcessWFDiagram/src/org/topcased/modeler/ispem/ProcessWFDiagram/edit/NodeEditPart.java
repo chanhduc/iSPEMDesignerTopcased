@@ -9,7 +9,6 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.topcased.modeler.ModelerEditPolicyConstants;
 import org.topcased.modeler.di.model.GraphNode;
-import org.topcased.modeler.edit.EMFGraphNodeEditPart;
 import org.topcased.modeler.edit.policies.LabelDirectEditPolicy;
 import org.topcased.modeler.edit.policies.ResizableEditPolicy;
 import org.topcased.modeler.edit.policies.RestoreEditPolicy;
@@ -21,7 +20,7 @@ import org.topcased.modeler.requests.RestoreConnectionsRequest;
  *
  * @generated
  */
-public class NodeEditPart extends EMFGraphNodeEditPart {
+public class NodeEditPart extends BreakdownElementEditPart {
 	/**
 	 * Constructor
 	 *

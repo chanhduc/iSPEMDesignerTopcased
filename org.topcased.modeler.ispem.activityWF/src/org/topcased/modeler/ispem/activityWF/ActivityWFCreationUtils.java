@@ -63,6 +63,7 @@ public class ActivityWFCreationUtils extends AbstractCreationUtils {
 		 * @generated
 		 */
 		public GraphicIspemSwitch(String presentation) {
+			
 			this.presentation = presentation;
 		}
 
@@ -136,6 +137,22 @@ public class ActivityWFCreationUtils extends AbstractCreationUtils {
 		public Object caseProcessParameter(
 				org.topcased.spem.ProcessParameter object) {
 			//add some properties for specific Process Parameter when creating
+			if ("default".equals(presentation))
+			{
+				if (object.getDirection()==ParameterDirectionKind.IN_LITERAL)
+				{
+					presentation = "artifactIn";
+				}
+				if (object.getDirection()==ParameterDirectionKind.OUT_LITERAL)
+				{
+					presentation = "artifactOut";
+				}
+				if (object.getDirection()==ParameterDirectionKind.INOUT_LITERAL)
+				{
+					presentation = "artifactInOut";
+				}
+				
+			}
 			if ("artifactIn".equals(presentation)
 					&& object.getDirection()!=ParameterDirectionKind.IN_LITERAL){
 				object.setDirection(ParameterDirectionKind.IN_LITERAL);

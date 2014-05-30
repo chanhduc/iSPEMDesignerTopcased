@@ -186,47 +186,25 @@ public class IspemItemProviderAdapterFactory extends IspemAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.topcased.ispem.ArtifactDefinition} instances.
+	 * This keeps track of the one adapter used for all {@link org.topcased.ispem.ISPEMMethodLibrary} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ArtifactDefinitionItemProvider artifactDefinitionItemProvider;
+	protected ISPEMMethodLibraryItemProvider ispemMethodLibraryItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.topcased.ispem.ArtifactDefinition}.
+	 * This creates an adapter for a {@link org.topcased.ispem.ISPEMMethodLibrary}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Adapter createArtifactDefinitionAdapter() {
-		if (artifactDefinitionItemProvider == null) {
-			artifactDefinitionItemProvider = new ArtifactDefinitionItemProvider(this);
+	public Adapter createISPEMMethodLibraryAdapter() {
+		if (ispemMethodLibraryItemProvider == null) {
+			ispemMethodLibraryItemProvider = new ISPEMMethodLibraryItemProvider(this);
 		}
 
-		return artifactDefinitionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.topcased.ispem.ISPEM} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ISPEMItemProvider ispemItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.topcased.ispem.ISPEM}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createISPEMAdapter() {
-		if (ispemItemProvider == null) {
-			ispemItemProvider = new ISPEMItemProvider(this);
-		}
-
-		return ispemItemProvider;
+		return ispemMethodLibraryItemProvider;
 	}
 
 	/**
@@ -758,6 +736,28 @@ public class IspemItemProviderAdapterFactory extends IspemAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.topcased.ispem.ArtifactDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArtifactDefinitionItemProvider artifactDefinitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.topcased.ispem.ArtifactDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createArtifactDefinitionAdapter() {
+		if (artifactDefinitionItemProvider == null) {
+			artifactDefinitionItemProvider = new ArtifactDefinitionItemProvider(this);
+		}
+
+		return artifactDefinitionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -858,7 +858,7 @@ public class IspemItemProviderAdapterFactory extends IspemAdapterFactory impleme
 		if (viewpointItemProvider != null) viewpointItemProvider.dispose();
 		if (taskDefinitionItemProvider != null) taskDefinitionItemProvider.dispose();
 		if (workProductDefinitionItemProvider != null) workProductDefinitionItemProvider.dispose();
-		if (ispemItemProvider != null) ispemItemProvider.dispose();
+		if (ispemMethodLibraryItemProvider != null) ispemMethodLibraryItemProvider.dispose();
 		if (developmentMethodItemProvider != null) developmentMethodItemProvider.dispose();
 		if (engineeringDomainPackageItemProvider != null) engineeringDomainPackageItemProvider.dispose();
 		if (developmentMethodPackageItemProvider != null) developmentMethodPackageItemProvider.dispose();

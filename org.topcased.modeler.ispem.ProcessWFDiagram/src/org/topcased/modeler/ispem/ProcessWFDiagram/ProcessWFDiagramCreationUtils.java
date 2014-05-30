@@ -6,6 +6,7 @@ package org.topcased.modeler.ispem.ProcessWFDiagram;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ProjectScope;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.ui.IEditorInput;
@@ -14,14 +15,17 @@ import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.osgi.service.prefs.BackingStoreException;
 import org.osgi.service.prefs.Preferences;
 import org.topcased.ispem.util.IspemSwitch;
+import org.topcased.modeler.di.model.DiagramInterchangeFactory;
+import org.topcased.modeler.di.model.EdgeObjectOffset;
 import org.topcased.modeler.di.model.GraphEdge;
 import org.topcased.modeler.di.model.GraphElement;
 import org.topcased.modeler.editor.AbstractCreationUtils;
 import org.topcased.modeler.evaluator.EvaluatorException;
 import org.topcased.modeler.evaluator.extension.EvaluatorsManager;
 import org.topcased.modeler.graphconf.DiagramGraphConf;
-
+import org.topcased.modeler.ispem.ProcessWFDiagram.preferences.ProcessWFDiagramDiagramPreferenceConstants;
 import org.topcased.spem.ParameterDirectionKind;
+import org.topcased.spem.WorkSequenceKind;
 import org.topcased.spem.activity.util.ActivitySwitch;
 import org.topcased.spem.uma.util.UmaSwitch;
 import org.topcased.spem.util.SpemSwitch;
@@ -125,10 +129,20 @@ public class ProcessWFDiagramCreationUtils extends AbstractCreationUtils {
 		 * @generated
 		 */
 		public Object caseWorkSequence(org.topcased.spem.WorkSequence object) {
-			if ("default".equals(presentation)) {
-				return createGraphElementWorkSequence(object, presentation);
+			if ("start2start".equals(presentation)) {
+				object.setLinkKind(WorkSequenceKind.START_TO_START_LITERAL);
 			}
-			return null;
+			if ("start2finish".equals(presentation)) {
+				object.setLinkKind(WorkSequenceKind.START_TO_FINISH_LITERAL);
+			}
+			if ("finish2start".equals(presentation)) {
+				object.setLinkKind(WorkSequenceKind.FINISH_TO_START_LITERAL);
+			}
+			if ("finish2finish".equals(presentation)) {
+				object.setLinkKind(WorkSequenceKind.FINISH_TO_FINISH_LITERAL);
+			}
+			return createGraphElementWorkSequence(object, presentation);
+			
 		}
 
 		/**
@@ -309,6 +323,17 @@ public class ProcessWFDiagramCreationUtils extends AbstractCreationUtils {
 		}
 
 		/**
+		 * @see org.topcased.spem.activity.util.ActivitySwitch#caseEdge(org.topcased.spem.activity.Edge)
+		 * @generated
+		 */
+		public Object caseEdge(org.topcased.spem.activity.Edge object) {
+			if ("default".equals(presentation)) {
+				return createGraphElementEdge(object, presentation);
+			}
+			return null;
+		}
+
+		/**
 		 * @see org.topcased.spem.activity.util.ActivitySwitch#defaultCase(org.eclipse.emf.ecore.EObject)
 		 * @generated
 		 */
@@ -437,6 +462,19 @@ public class ProcessWFDiagramCreationUtils extends AbstractCreationUtils {
 	}
 
 	/**
+	 * @param element the model element
+	 * @param presentation the presentation of the graphical element
+	 * @return the complete GraphElement
+	 * @generated
+	 */
+	protected GraphElement createGraphElementEdge(
+			org.topcased.spem.activity.Edge element, String presentation) {
+		GraphEdge graphEdge = createGraphEdge(element, presentation);
+		return graphEdge;
+	}
+
+
+	/**
 	 * @param element
 	 *            the model element
 	 * @param presentation
@@ -447,6 +485,16 @@ public class ProcessWFDiagramCreationUtils extends AbstractCreationUtils {
 	protected GraphElement createGraphElementWorkSequence(
 			org.topcased.spem.WorkSequence element, String presentation) {
 		GraphEdge graphEdge = createGraphEdge(element, presentation);
+		EdgeObjectOffset linkkindEdgeObjectOffset = DiagramInterchangeFactory.eINSTANCE
+				.createEdgeObjectOffset();
+		linkkindEdgeObjectOffset
+				.setId(ProcessWFDiagramEdgeObjectConstants.LINKKIND_EDGE_OBJECT_ID);
+		linkkindEdgeObjectOffset.setOffset(new Dimension(0, 0));
+		linkkindEdgeObjectOffset
+				.setVisible(getPreferenceStore()
+						.getBoolean(
+								ProcessWFDiagramDiagramPreferenceConstants.WORKSEQUENCE_LINKKIND_EDGE_OBJECT_DEFAULT_VISIBILITY));
+		graphEdge.getContained().add(linkkindEdgeObjectOffset);
 		return graphEdge;
 	}
 

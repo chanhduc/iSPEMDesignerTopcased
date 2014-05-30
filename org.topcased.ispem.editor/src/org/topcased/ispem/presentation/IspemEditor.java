@@ -163,6 +163,7 @@ import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import org.topcased.spem.activity.provider.ActivityItemProviderAdapterFactory;
+
 import org.topcased.spem.provider.SpemItemProviderAdapterFactory;
 
 import org.topcased.spem.uma.provider.UmaItemProviderAdapterFactory;

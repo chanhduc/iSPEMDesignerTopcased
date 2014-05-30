@@ -8,13 +8,19 @@ package org.topcased.ispem.provider;
 
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -26,7 +32,9 @@ import org.topcased.ispem.DomainContentPackage;
 import org.topcased.ispem.IspemPackage;
 
 import org.topcased.spem.provider.MethodContentPackageItemProvider;
-
+import org.topcased.spem.uma.UmaFactory;
+import org.topcased.spem.uma.impl.UmaFactoryImpl;
+import org.eclipse.emf.edit.command.AddCommand;
 /**
  * This is the item provider adapter for a {@link org.topcased.ispem.DomainContentPackage} object.
  * <!-- begin-user-doc -->
@@ -142,6 +150,7 @@ public class DomainContentPackageItemProvider
 	 */
 	public ResourceLocator getResourceLocator() {
 		return IspemEditPlugin.INSTANCE;
+		
 	}
 
 }

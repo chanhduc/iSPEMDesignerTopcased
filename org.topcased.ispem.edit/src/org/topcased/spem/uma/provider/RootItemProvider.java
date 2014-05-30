@@ -160,7 +160,7 @@ public class RootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(UmaPackage.Literals.ROOT__METHOD_LIBRARY,
-				 IspemFactory.eINSTANCE.createISPEM()));
+				 IspemFactory.eINSTANCE.createISPEMMethodLibrary()));
 
 		newChildDescriptors.add
 			(createChildParameter

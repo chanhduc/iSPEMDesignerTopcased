@@ -8,6 +8,7 @@ Bundle-Activator: org.topcased.ispem.presentation.IspemEditorPlugin$Implementati
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: org.topcased.ispem.presentation,
+ org.topcased.spem.activity.presentation,
  org.topcased.spem.presentation,
  org.topcased.spem.uma.presentation
 Require-Bundle: org.eclipse.core.runtime,

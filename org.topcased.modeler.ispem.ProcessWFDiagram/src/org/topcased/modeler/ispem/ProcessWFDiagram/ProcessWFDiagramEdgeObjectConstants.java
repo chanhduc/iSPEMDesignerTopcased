@@ -9,4 +9,10 @@ package org.topcased.modeler.ispem.ProcessWFDiagram;
  * @generated
  */
 public interface ProcessWFDiagramEdgeObjectConstants {
+	/**
+	 * Public constant defining the linkKind EdgeObject id.
+	 * 
+	 * @generated
+	 */
+	String LINKKIND_EDGE_OBJECT_ID = "linkKindEdgeObject";
 }

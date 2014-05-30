@@ -32,6 +32,7 @@ import org.topcased.ispem.ENamedElementRelationKind;
 import org.topcased.ispem.EReferencesRelation;
 import org.topcased.ispem.EngineeringDomain;
 import org.topcased.ispem.EngineeringDomainPackage;
+import org.topcased.ispem.ISPEMMethodLibrary;
 import org.topcased.ispem.ISPEM;
 import org.topcased.ispem.IspemFactory;
 import org.topcased.ispem.IspemPackage;
@@ -43,13 +44,15 @@ import org.topcased.ispem.MetaModelPackage;
 import org.topcased.ispem.MethodArtifactDefinition;
 import org.topcased.ispem.MethodTaskDefinition;
 import org.topcased.ispem.OntologyLinkedElement;
-import org.topcased.ispem.RepresentLanguage;
+
 import org.topcased.ispem.RepresentLanguagePackage;
 import org.topcased.ispem.RepresentativeLanguage;
 import org.topcased.ispem.TaskDefinition;
 import org.topcased.ispem.ToolDefinition;
 import org.topcased.ispem.Viewpoint;
 import org.topcased.ispem.WorkProductDefinition;
+import org.topcased.spem.uma.UmaFactory;
+import org.topcased.spem.uma.impl.UmaFactoryImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -99,7 +102,7 @@ public class IspemFactoryImpl extends EFactoryImpl implements IspemFactory {
 			case IspemPackage.VIEWPOINT: return createViewpoint();
 			case IspemPackage.TASK_DEFINITION: return createTaskDefinition();
 			case IspemPackage.WORK_PRODUCT_DEFINITION: return createWorkProductDefinition();
-			case IspemPackage.ISPEM: return createISPEM();
+			case IspemPackage.ISPEM_METHOD_LIBRARY: return createISPEMMethodLibrary();
 			case IspemPackage.DEVELOPMENT_METHOD: return createDevelopmentMethod();
 			case IspemPackage.ENGINEERING_DOMAIN_PACKAGE: return createEngineeringDomainPackage();
 			case IspemPackage.DEVELOPMENT_METHOD_PACKAGE: return createDevelopmentMethodPackage();
@@ -217,9 +220,9 @@ public class IspemFactoryImpl extends EFactoryImpl implements IspemFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ArtifactDefinition createArtifactDefinition() {
-		ArtifactDefinitionImpl artifactDefinition = new ArtifactDefinitionImpl();
-		return artifactDefinition;
+	public ISPEMMethodLibrary createISPEMMethodLibrary() {
+		ISPEMMethodLibraryImpl ispemMethodLibrary = new ISPEMMethodLibraryImpl();
+		return ispemMethodLibrary;
 	}
 
 	/**
@@ -227,9 +230,9 @@ public class IspemFactoryImpl extends EFactoryImpl implements IspemFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ISPEM createISPEM() {
-		ISPEMImpl ispem = new ISPEMImpl();
-		return ispem;
+	public ArtifactDefinition createArtifactDefinition() {
+		ArtifactDefinitionImpl artifactDefinition = new ArtifactDefinitionImpl();
+		return artifactDefinition;
 	}
 
 	/**
@@ -359,6 +362,7 @@ public class IspemFactoryImpl extends EFactoryImpl implements IspemFactory {
 	 */
 	public DomainContentPackage createDomainContentPackage() {
 		DomainContentPackageImpl domainContentPackage = new DomainContentPackageImpl();
+		
 		return domainContentPackage;
 	}
 
@@ -369,6 +373,7 @@ public class IspemFactoryImpl extends EFactoryImpl implements IspemFactory {
 	 */
 	public DevelopmentMethodContentPackage createDevelopmentMethodContentPackage() {
 		DevelopmentMethodContentPackageImpl developmentMethodContentPackage = new DevelopmentMethodContentPackageImpl();
+		
 		return developmentMethodContentPackage;
 	}
 

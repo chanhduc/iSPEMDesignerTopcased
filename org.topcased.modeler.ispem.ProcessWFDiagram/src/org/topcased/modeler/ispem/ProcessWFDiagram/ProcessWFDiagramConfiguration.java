@@ -18,7 +18,9 @@ import org.topcased.modeler.graphconf.DiagramGraphConf;
 import org.topcased.modeler.graphconf.exceptions.MissingGraphConfFileException;
 import org.topcased.modeler.ispem.ProcessWFDiagram.edit.ActivityEditPart;
 import org.topcased.modeler.ispem.ProcessWFDiagram.edit.ArtifactEditPart;
+import org.topcased.modeler.ispem.ProcessWFDiagram.edit.BreakdownElementEditPart;
 import org.topcased.modeler.ispem.ProcessWFDiagram.edit.DecisionNodeEditPart;
+import org.topcased.modeler.ispem.ProcessWFDiagram.edit.EdgeEditPart;
 import org.topcased.modeler.ispem.ProcessWFDiagram.edit.EndNodeEditPart;
 import org.topcased.modeler.ispem.ProcessWFDiagram.edit.ForkNodeEditPart;
 import org.topcased.modeler.ispem.ProcessWFDiagram.edit.JoinNodeEditPart;
@@ -72,6 +74,10 @@ public class ProcessWFDiagramConfiguration implements IConfiguration {
 	 */
 	private void registerAdapters() {
 		Platform.getAdapterManager().registerAdapters(
+				new EditPart2ModelAdapterFactory(EdgeEditPart.class,
+						org.topcased.spem.activity.Edge.class),
+				EdgeEditPart.class);
+		Platform.getAdapterManager().registerAdapters(
 				new EditPart2ModelAdapterFactory(ActivityEditPart.class,
 						org.topcased.ispem.Activity.class),
 				ActivityEditPart.class);
@@ -122,6 +128,11 @@ public class ProcessWFDiagramConfiguration implements IConfiguration {
 						ProcessParameterInOutEditPart.class,
 						org.topcased.spem.ProcessParameter.class),
 				ProcessParameterInOutEditPart.class);
+		Platform.getAdapterManager().registerAdapters(
+				new EditPart2ModelAdapterFactory(
+						BreakdownElementEditPart.class,
+						org.topcased.spem.BreakdownElement.class),
+				BreakdownElementEditPart.class);
 	}
 
 	/**

@@ -10,6 +10,24 @@ package org.topcased.modeler.ispem.ProcessWFDiagram.preferences;
  */
 public interface ProcessWFDiagramDiagramPreferenceConstants {
 	/**
+	 * The key used to install a <i>Edge Edge Default Font</i> Preference.
+	 * @generated
+	 */
+	String EDGE_EDGE_DEFAULT_FONT = "Edge Edge Default Font";
+
+	/**
+	 * The key used to install a <i>Edge Edge Default Foreground Color</i> Preference.
+	 * @generated
+	 */
+	String EDGE_EDGE_DEFAULT_FOREGROUND_COLOR = "Edge Edge Default Foreground Color";
+
+	/**
+	 * The key used to install a <i>Edge Edge Default Router</i> Preference.
+	 * @generated
+	 */
+	String EDGE_EDGE_DEFAULT_ROUTER = "Edge Edge Default Router";
+
+	/**
 	 * The key used to install a <i>Activity Default Background Color</i> Preference.
 	 * @generated
 	 */
@@ -44,6 +62,12 @@ public interface ProcessWFDiagramDiagramPreferenceConstants {
 	 * @generated
 	 */
 	String WORKSEQUENCE_EDGE_DEFAULT_ROUTER = "WorkSequence Edge Default Router";
+
+	/**
+	 * The key used to install a <i>WorkSequence linkKind Edge Object Default Visibility</i> Preference.
+	 * @generated
+	 */
+	String WORKSEQUENCE_LINKKIND_EDGE_OBJECT_DEFAULT_VISIBILITY = "WorkSequence linkKind Edge Object Default Visibility";
 
 	/**
 	 * The key used to install a <i>Artifact Default Background Color</i> Preference.

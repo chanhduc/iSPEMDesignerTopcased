@@ -232,28 +232,6 @@ public class TaskDefinitionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Used Tool feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addUsedToolPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TaskDefinition_usedTool_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TaskDefinition_usedTool_feature", "_UI_TaskDefinition_type"),
-				 SpemPackage.Literals.TASK_DEFINITION__USED_TOOL,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Required Qualification feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -267,6 +245,28 @@ public class TaskDefinitionItemProvider
 				 getString("_UI_TaskDefinition_requiredQualification_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TaskDefinition_requiredQualification_feature", "_UI_TaskDefinition_type"),
 				 SpemPackage.Literals.TASK_DEFINITION__REQUIRED_QUALIFICATION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Used Tool feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUsedToolPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TaskDefinition_usedTool_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TaskDefinition_usedTool_feature", "_UI_TaskDefinition_type"),
+				 SpemPackage.Literals.TASK_DEFINITION__USED_TOOL,
 				 true,
 				 false,
 				 true,

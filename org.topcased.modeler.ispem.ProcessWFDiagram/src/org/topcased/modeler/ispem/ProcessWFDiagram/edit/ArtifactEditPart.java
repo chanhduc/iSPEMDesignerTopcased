@@ -44,7 +44,7 @@ public class ArtifactEditPart extends EMFGraphNodeEditPart {
 	/**
 	 * Creates edit policies and associates these with roles
 	 *
-	 * @generated
+	 * @personalised
 	 */
 	protected void createEditPolicies() {
 		super.createEditPolicies();

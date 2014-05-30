@@ -36,7 +36,7 @@ public class ArtifactRestoreConnectionCommand extends
 
 	/**
 	 * @see org.topcased.modeler.commands.AbstractRestoreConnectionCommand#initializeCommands()
-	 * @generated
+	 * @personalised
 	 */
 	protected void initializeCommands() {
 
@@ -69,6 +69,8 @@ public class ArtifactRestoreConnectionCommand extends
 	}
 
 	
+	
+	
 	/**
 	 * @param srcElt the source element
 	 * @param targetElt the target element
@@ -85,8 +87,8 @@ public class ArtifactRestoreConnectionCommand extends
 			Object obj = it.next();
 			if (obj instanceof ProcessParameter) {
 				ProcessParameter edgeObject = (ProcessParameter) obj;
-				
-				if (edgeObject.getDirection()==ParameterDirectionKind.IN_LITERAL) {
+
+				if (edgeObject.getDirection() == ParameterDirectionKind.IN_LITERAL) {
 					// check if the relation does not exists yet
 					List<GraphEdge> existing = getExistingEdges(srcElt,
 							targetElt, ProcessParameter.class);
@@ -125,7 +127,7 @@ public class ArtifactRestoreConnectionCommand extends
 			Object obj = it.next();
 			if (obj instanceof ProcessParameter) {
 				ProcessParameter edgeObject = (ProcessParameter) obj;
-				if (edgeObject.getDirection()==ParameterDirectionKind.OUT_LITERAL) {
+				if (edgeObject.getDirection() == ParameterDirectionKind.OUT_LITERAL) {
 					// check if the relation does not exists yet
 					List<GraphEdge> existing = getExistingEdges(srcElt,
 							targetElt, ProcessParameter.class);
@@ -164,7 +166,7 @@ public class ArtifactRestoreConnectionCommand extends
 			Object obj = it.next();
 			if (obj instanceof ProcessParameter) {
 				ProcessParameter edgeObject = (ProcessParameter) obj;
-				if (edgeObject.getDirection()==ParameterDirectionKind.INOUT_LITERAL) {
+				if (edgeObject.getDirection() == ParameterDirectionKind.INOUT_LITERAL) {
 					// check if the relation does not exists yet
 					List<GraphEdge> existing = getExistingEdges(srcElt,
 							targetElt, ProcessParameter.class);

@@ -10,7 +10,6 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.topcased.ispem.Activity;
 import org.topcased.ispem.Artifact;
 import org.topcased.ispem.ArtifactDefinition;
@@ -27,6 +26,7 @@ import org.topcased.ispem.EClassesRelation;
 import org.topcased.ispem.EReferencesRelation;
 import org.topcased.ispem.EngineeringDomain;
 import org.topcased.ispem.EngineeringDomainPackage;
+import org.topcased.ispem.ISPEMMethodLibrary;
 import org.topcased.ispem.ISPEM;
 import org.topcased.ispem.IspemPackage;
 import org.topcased.ispem.LanguageArtifactDefinition;
@@ -36,13 +36,11 @@ import org.topcased.ispem.MetaModelPackage;
 import org.topcased.ispem.MethodArtifactDefinition;
 import org.topcased.ispem.MethodTaskDefinition;
 import org.topcased.ispem.OntologyLinkedElement;
-import org.topcased.ispem.RepresentLanguage;
 import org.topcased.ispem.RepresentLanguagePackage;
 import org.topcased.ispem.RepresentativeLanguage;
 import org.topcased.ispem.TaskDefinition;
 import org.topcased.ispem.ToolDefinition;
 import org.topcased.ispem.Viewpoint;
-
 import org.topcased.ispem.WorkProductDefinition;
 import org.topcased.spem.BreakdownElement;
 import org.topcased.spem.Category;
@@ -60,7 +58,6 @@ import org.topcased.spem.VariabilityElement;
 import org.topcased.spem.WorkBreakdownElement;
 import org.topcased.spem.WorkDefinition;
 import org.topcased.spem.WorkProductUse;
-
 import org.topcased.spem.uma.CapabilityPattern;
 import org.topcased.spem.uma.CategoryPackage;
 import org.topcased.spem.uma.WorkProductDefinitionPackage;
@@ -203,10 +200,10 @@ public class IspemSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case IspemPackage.ISPEM: {
-				ISPEM ispem = (ISPEM)theEObject;
-				Object result = caseISPEM(ispem);
-				if (result == null) result = caseMethodLibrary(ispem);
+			case IspemPackage.ISPEM_METHOD_LIBRARY: {
+				ISPEMMethodLibrary ispemMethodLibrary = (ISPEMMethodLibrary)theEObject;
+				Object result = caseISPEMMethodLibrary(ispemMethodLibrary);
+				if (result == null) result = caseMethodLibrary(ispemMethodLibrary);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -592,21 +589,6 @@ public class IspemSwitch {
 	 * @generated
 	 */
 	public Object caseArtifactDefinition(ArtifactDefinition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>ISPEM</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>ISPEM</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseISPEM(ISPEM object) {
 		return null;
 	}
 
@@ -1117,6 +1099,21 @@ public class IspemSwitch {
 	 * @generated
 	 */
 	public Object caseWorkProductDefinition(WorkProductDefinition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ISPEM Method Library</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ISPEM Method Library</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseISPEMMethodLibrary(ISPEMMethodLibrary object) {
 		return null;
 	}
 

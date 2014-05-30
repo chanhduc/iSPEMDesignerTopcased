@@ -10,8 +10,30 @@
       <items xmi:id="_NVU_wOLuEeOfnJmXmT-P4g" name="Join Node" part="_r0NhgOKVEeOfnJmXmT-P4g"/>
       <items xmi:id="_PMtYIOLuEeOfnJmXmT-P4g" name="Decision Node" part="_tUQX8OKVEeOfnJmXmT-P4g"/>
     </paletteCategories>
-    <paletteCategories xmi:id="_QJ-5YMb6EeOkFebLjfx5SQ" name="Edge">
-      <items xmi:id="_RU7pkMb6EeOkFebLjfx5SQ" name="Edge" part="_uLy_EMZpEeOkFebLjfx5SQ"/>
+    <paletteCategories xmi:id="_QJ-5YMb6EeOkFebLjfx5SQ" name="Link">
+      <items xmi:id="_RU7pkMb6EeOkFebLjfx5SQ" name="Edge">
+        <part xsi:type="diagramconfigurator:EdgePartConfiguration" href="ActivityWorkflow.diagramconfigurator#_0mHH8MvLEeO7gZyge6ePKw"/>
+      </items>
+      <items xmi:id="_pWkQYOMDEeOfnJmXmT-P4g" name="Start To Start" part="_uLy_EMZpEeOkFebLjfx5SQ">
+        <eAnnotations xmi:id="_ysd94OMFEeOfnJmXmT-P4g" source="http://org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details xmi:id="_w29i4OMHEeOfnJmXmT-P4g" key="linkKind" value="WorkSequenceKind::startToStart"/>
+        </eAnnotations>
+      </items>
+      <items xmi:id="_WHC1kOMFEeOfnJmXmT-P4g" name="Start To Finish" part="_uLy_EMZpEeOkFebLjfx5SQ">
+        <eAnnotations xmi:id="_Bm5q8OMIEeOfnJmXmT-P4g" source="http://org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details xmi:id="_Bm5q8eMIEeOfnJmXmT-P4g" key="linkKind" value="WorkSequenceKind::startToFinish"/>
+        </eAnnotations>
+      </items>
+      <items xmi:id="_Y4FZ0OMFEeOfnJmXmT-P4g" name="Finish To Start" part="_uLy_EMZpEeOkFebLjfx5SQ">
+        <eAnnotations xmi:id="_Bx1voOMIEeOfnJmXmT-P4g" source="http://org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details xmi:id="_Bx1voeMIEeOfnJmXmT-P4g" key="linkKind" value="WorkSequenceKind::finishToStart"/>
+        </eAnnotations>
+      </items>
+      <items xmi:id="_bGGJgOMFEeOfnJmXmT-P4g" name="Finish To Finish" part="_uLy_EMZpEeOkFebLjfx5SQ">
+        <eAnnotations xmi:id="_B72nQOMIEeOfnJmXmT-P4g" source="http://org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details xmi:id="_B72nQeMIEeOfnJmXmT-P4g" key="linkKind" value="WorkSequenceKind::finishToFinish"/>
+        </eAnnotations>
+      </items>
     </paletteCategories>
     <paletteCategories xmi:id="_Rx54wOLuEeOfnJmXmT-P4g" name="ProcessParameter">
       <items xmi:id="_UbX1YOLuEeOfnJmXmT-P4g" name="In" part="_OglHYOLtEeOfnJmXmT-P4g"/>
@@ -19,7 +41,15 @@
       <items xmi:id="_XtP10OLuEeOfnJmXmT-P4g" name="InOut" part="_aToesOLtEeOfnJmXmT-P4g"/>
     </paletteCategories>
   </palette>
-  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_qECfgcZpEeOkFebLjfx5SQ" object="_mip0gMZKEeOrPsrIp2QWGQ" type="Graphic With Bottom Label"/>
+  <parts xsi:type="diagramconfigurator:EdgePartConfiguration" xmi:id="_nlrPoOMFEeOfnJmXmT-P4g" object="_ffP7EOMFEeOfnJmXmT-P4g" targetDecoration="ARROW">
+    <sourceTargetCouple xmi:id="_snC3wOMFEeOfnJmXmT-P4g" containerType="DIAGRAM" sourceNode="_5TpcUOL8EeOfnJmXmT-P4g" targetNode="_5TpcUOL8EeOfnJmXmT-P4g">
+      <containerObject href="Models/ispem.genmodel#//ispem/Process"/>
+      <containerRef xsi:type="ecore:EReference" href="Models/spem2.ecore#//Activity/nestedBreakdownElement"/>
+      <refEdgeToSource xsi:type="ecore:EReference" href="Models/spem2.ecore#//activity/Edge/source"/>
+      <refEdgeToTarget xsi:type="ecore:EReference" href="Models/spem2.ecore#//activity/Edge/target"/>
+    </sourceTargetCouple>
+  </parts>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_qECfgcZpEeOkFebLjfx5SQ" object="_mip0gMZKEeOrPsrIp2QWGQ" type="Graphic With Bottom Label" superType="_5TpcUOL8EeOfnJmXmT-P4g"/>
   <parts xsi:type="diagramconfigurator:EdgePartConfiguration" xmi:id="_uLy_EMZpEeOkFebLjfx5SQ" object="_s5xHkMZKEeOrPsrIp2QWGQ" defaultForegroundColor="0,64,128" targetDecoration="ARROW">
     <sourceTargetCouple xmi:id="_3UYewMZqEeOkFebLjfx5SQ" containerType="SOURCE" sourceNode="_qECfgcZpEeOkFebLjfx5SQ" targetNode="_qECfgcZpEeOkFebLjfx5SQ">
       <containerObject href="Models/ispem.genmodel#//ispem/Activity"/>
@@ -31,9 +61,12 @@
       <refSourceToTarget xsi:type="ecore:EReference" href="Models/spem2.ecore#//VariabilityElement/variabilityBasedOnElement"/>
       <refTargetToSource xsi:type="ecore:EReference" href="Models/spem2.ecore#//VariabilityElement/variabilityBasedOnElement"/>
     </sourceTargetCouple>
+    <edgeObjects xmi:id="_Lb6voOMFEeOfnJmXmT-P4g" id="linkKind" type="Middle">
+      <eStructuralFeature xsi:type="ecore:EAttribute" href="Models/spem2.ecore#//WorkSequence/linkKind"/>
+    </edgeObjects>
   </parts>
   <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_hG8tkOKVEeOfnJmXmT-P4g" object="_a14NkOKUEeOfnJmXmT-P4g" type="Graphic With Bottom Label"/>
-  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_lFoJoOKVEeOfnJmXmT-P4g" object="_dxiGYOKUEeOfnJmXmT-P4g"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_lFoJoOKVEeOfnJmXmT-P4g" object="_dxiGYOKUEeOfnJmXmT-P4g" superType="_5TpcUOL8EeOfnJmXmT-P4g"/>
   <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_ml-iEOKVEeOfnJmXmT-P4g" object="_hbIqUOKUEeOfnJmXmT-P4g" superType="_lFoJoOKVEeOfnJmXmT-P4g"/>
   <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_olLZsOKVEeOfnJmXmT-P4g" object="_jot8MOKUEeOfnJmXmT-P4g" superType="_lFoJoOKVEeOfnJmXmT-P4g"/>
   <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_qCqEUOKVEeOfnJmXmT-P4g" object="_k9GVMOKUEeOfnJmXmT-P4g" superType="_lFoJoOKVEeOfnJmXmT-P4g"/>
@@ -60,6 +93,7 @@
       <containerRef xsi:type="ecore:EReference" href="Models/spem2.ecore#//WorkDefinition/ownedParameter"/>
     </sourceTargetCouple>
   </parts>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_5TpcUOL8EeOfnJmXmT-P4g" object="_z1XOsOL8EeOfnJmXmT-P4g"/>
   <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_B8ODIMZKEeOrPsrIp2QWGQ">
     <genClass href="Models/ispem.genmodel#//ispem/Process"/>
     <diagrams xmi:id="_6A4jAMbzEeOkFebLjfx5SQ" diagram="_VDvxEMWvEeOaGLeJJICaew"/>
@@ -96,6 +130,12 @@
   </objects>
   <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_GS6DUOKVEeOfnJmXmT-P4g">
     <genClass href="Models/ispem.genmodel#//spem/ProcessParameter"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_z1XOsOL8EeOfnJmXmT-P4g">
+    <genClass href="Models/ispem.genmodel#//spem/BreakdownElement"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_ffP7EOMFEeOfnJmXmT-P4g">
+    <genClass href="Models/ispem.genmodel#//spem/activity/Edge"/>
   </objects>
   <genModel href="Models/ispem.genmodel#/"/>
   <templateRootObject href="Models/ispem.genmodel#//ispem/Process"/>

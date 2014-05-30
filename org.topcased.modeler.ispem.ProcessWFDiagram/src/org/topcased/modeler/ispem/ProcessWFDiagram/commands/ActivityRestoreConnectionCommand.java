@@ -11,10 +11,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.topcased.ispem.Activity;
 import org.topcased.ispem.Artifact;
-import org.topcased.modeler.commands.AbstractRestoreConnectionCommand;
 import org.topcased.modeler.di.model.GraphEdge;
 import org.topcased.modeler.di.model.GraphElement;
-import org.topcased.modeler.di.model.internal.impl.EdgeObjectUVImpl;
 import org.topcased.modeler.editor.ICreationUtils;
 import org.topcased.modeler.utils.Utils;
 import org.topcased.spem.ParameterDirectionKind;
@@ -27,7 +25,7 @@ import org.topcased.spem.WorkSequence;
  * @generated
  */
 public class ActivityRestoreConnectionCommand extends
-		AbstractRestoreConnectionCommand {
+		BreakdownElementRestoreConnectionCommand {
 	/**
 	 * @param part the EditPart that is restored
 	 * @generated
@@ -77,8 +75,6 @@ public class ActivityRestoreConnectionCommand extends
 								graphElementSrc, graphElementTgt);
 					}
 				}
-
-				
 
 			}
 		}
@@ -131,6 +127,7 @@ public class ActivityRestoreConnectionCommand extends
 		}
 	}
 
+
 	/**
 	 * @param srcElt the source element
 	 * @param targetElt the target element
@@ -147,8 +144,8 @@ public class ActivityRestoreConnectionCommand extends
 			Object obj = it.next();
 			if (obj instanceof ProcessParameter) {
 				ProcessParameter edgeObject = (ProcessParameter) obj;
-				
-				if (edgeObject.getDirection()==ParameterDirectionKind.IN_LITERAL) {
+
+				if (edgeObject.getDirection() == ParameterDirectionKind.IN_LITERAL) {
 					// check if the relation does not exists yet
 					List<GraphEdge> existing = getExistingEdges(srcElt,
 							targetElt, ProcessParameter.class);
@@ -187,7 +184,7 @@ public class ActivityRestoreConnectionCommand extends
 			Object obj = it.next();
 			if (obj instanceof ProcessParameter) {
 				ProcessParameter edgeObject = (ProcessParameter) obj;
-				if (edgeObject.getDirection()==ParameterDirectionKind.OUT_LITERAL) {
+				if (edgeObject.getDirection() == ParameterDirectionKind.OUT_LITERAL) {
 					// check if the relation does not exists yet
 					List<GraphEdge> existing = getExistingEdges(srcElt,
 							targetElt, ProcessParameter.class);
@@ -226,7 +223,7 @@ public class ActivityRestoreConnectionCommand extends
 			Object obj = it.next();
 			if (obj instanceof ProcessParameter) {
 				ProcessParameter edgeObject = (ProcessParameter) obj;
-				if (edgeObject.getDirection()==ParameterDirectionKind.INOUT_LITERAL) {
+				if (edgeObject.getDirection() == ParameterDirectionKind.INOUT_LITERAL) {
 					// check if the relation does not exists yet
 					List<GraphEdge> existing = getExistingEdges(srcElt,
 							targetElt, ProcessParameter.class);

@@ -32,7 +32,7 @@ public class ProcessWFDiagramPaletteManager extends ModelerPaletteManager {
 	/**
 	 * @generated
 	 */
-	private PaletteDrawer edgeDrawer;
+	private PaletteDrawer linkDrawer;
 	/**
 	 * @generated
 	 */
@@ -61,7 +61,7 @@ public class ProcessWFDiagramPaletteManager extends ModelerPaletteManager {
 	 */
 	protected void createCategories() {
 		createNodeDrawer();
-		createEdgeDrawer();
+		createLinkDrawer();
 		createProcessParameterDrawer();
 	}
 
@@ -76,8 +76,8 @@ public class ProcessWFDiagramPaletteManager extends ModelerPaletteManager {
 		getRoot().remove(nodeDrawer);
 		createNodeDrawer();
 
-		getRoot().remove(edgeDrawer);
-		createEdgeDrawer();
+		getRoot().remove(linkDrawer);
+		createLinkDrawer();
 
 		getRoot().remove(processparameterDrawer);
 		createProcessParameterDrawer();
@@ -159,22 +159,53 @@ public class ProcessWFDiagramPaletteManager extends ModelerPaletteManager {
 	 *
 	 * @generated
 	 */
-	private void createEdgeDrawer() {
-		edgeDrawer = new PaletteDrawer("Edge", null);
+	private void createLinkDrawer() {
+		linkDrawer = new PaletteDrawer("Link", null);
 		List<PaletteEntry> entries = new ArrayList<PaletteEntry>();
 
 		CreationFactory factory;
 
 		factory = new GraphElementCreationFactory(creationUtils,
-				SpemPackage.eINSTANCE.getWorkSequence(), "default");
+				ActivityPackage.eINSTANCE.getEdge(), "default");
 		entries.add(new ModelerConnectionCreationToolEntry("Edge", "Edge",
 				factory, ProcessWFDiagramImageRegistry
+						.getImageDescriptor("EDGE"),
+				ProcessWFDiagramImageRegistry.getImageDescriptor("EDGE_LARGE")));
+
+		factory = new GraphElementCreationFactory(creationUtils,
+				SpemPackage.eINSTANCE.getWorkSequence(), "start2start");
+		entries.add(new ModelerConnectionCreationToolEntry("Start To Start",
+				"Start To Start", factory, ProcessWFDiagramImageRegistry
 						.getImageDescriptor("WORKSEQUENCE"),
 				ProcessWFDiagramImageRegistry
 						.getImageDescriptor("WORKSEQUENCE_LARGE")));
 
-		edgeDrawer.addAll(entries);
-		getRoot().add(edgeDrawer);
+		factory = new GraphElementCreationFactory(creationUtils,
+				SpemPackage.eINSTANCE.getWorkSequence(), "start2finish");
+		entries.add(new ModelerConnectionCreationToolEntry("Start To Finish",
+				"Start To Finish", factory, ProcessWFDiagramImageRegistry
+						.getImageDescriptor("WORKSEQUENCE"),
+				ProcessWFDiagramImageRegistry
+						.getImageDescriptor("WORKSEQUENCE_LARGE")));
+
+		factory = new GraphElementCreationFactory(creationUtils,
+				SpemPackage.eINSTANCE.getWorkSequence(), "finish2start");
+		entries.add(new ModelerConnectionCreationToolEntry("Finish To Start",
+				"Finish To Start", factory, ProcessWFDiagramImageRegistry
+						.getImageDescriptor("WORKSEQUENCE"),
+				ProcessWFDiagramImageRegistry
+						.getImageDescriptor("WORKSEQUENCE_LARGE")));
+
+		factory = new GraphElementCreationFactory(creationUtils,
+				SpemPackage.eINSTANCE.getWorkSequence(), "finish2finish");
+		entries.add(new ModelerConnectionCreationToolEntry("Finish To Finish",
+				"Finish To Finish", factory, ProcessWFDiagramImageRegistry
+						.getImageDescriptor("WORKSEQUENCE"),
+				ProcessWFDiagramImageRegistry
+						.getImageDescriptor("WORKSEQUENCE_LARGE")));
+
+		linkDrawer.addAll(entries);
+		getRoot().add(linkDrawer);
 	}
 
 	/**

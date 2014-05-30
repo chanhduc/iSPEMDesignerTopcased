@@ -11,7 +11,6 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.topcased.modeler.ModelerEditPolicyConstants;
 import org.topcased.modeler.di.model.GraphNode;
-import org.topcased.modeler.edit.EMFGraphNodeEditPart;
 import org.topcased.modeler.edit.policies.LabelDirectEditPolicy;
 import org.topcased.modeler.edit.policies.ResizableEditPolicy;
 import org.topcased.modeler.edit.policies.RestoreEditPolicy;
@@ -31,7 +30,7 @@ import org.topcased.modeler.utils.Utils;
  *
  * @generated
  */
-public class ActivityEditPart extends EMFGraphNodeEditPart {
+public class ActivityEditPart extends BreakdownElementEditPart {
 	/**
 	 * Constructor
 	 *
@@ -45,7 +44,7 @@ public class ActivityEditPart extends EMFGraphNodeEditPart {
 	/**
 	 * Creates edit policies and associates these with roles
 	 *
-	 * @generated
+	 * @personalised
 	 */
 	protected void createEditPolicies() {
 		super.createEditPolicies();
@@ -63,7 +62,7 @@ public class ActivityEditPart extends EMFGraphNodeEditPart {
 		installEditPolicy(
 				ProcessWFDiagramEditPolicyConstants.PROCESSPARAMETERINOUT_EDITPOLICY,
 				new ProcessParameterInOutEdgeCreationEditPolicy());
-		
+
 		installEditPolicy(ModelerEditPolicyConstants.RESTORE_EDITPOLICY,
 				new RestoreEditPolicy() {
 					protected Command getRestoreConnectionsCommand(

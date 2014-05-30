@@ -72,32 +72,9 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import org.topcased.ispem.DevelopmentMethodPackage;
-import org.topcased.ispem.EngineeringDomainPackage;
 import org.topcased.ispem.IspemFactory;
 import org.topcased.ispem.IspemPackage;
-import org.topcased.ispem.MetaModelPackage;
-import org.topcased.ispem.RepresentLanguagePackage;
 import org.topcased.ispem.provider.IspemEditPlugin;
-import org.topcased.spem.MethodContentPackage;
-import org.topcased.spem.MethodLibrary;
-import org.topcased.spem.MethodPlugin;
-import org.topcased.spem.ProcessPackage;
-import org.topcased.spem.SpemFactory;
-import org.topcased.spem.SpemPackage;
-import org.topcased.spem.uma.CapabilityPatternPackage;
-import org.topcased.spem.uma.CategoryPackage;
-import org.topcased.spem.uma.ConfigurationPackage;
-import org.topcased.spem.uma.DeliveryProcessPackage;
-import org.topcased.spem.uma.DisciplinePackage;
-import org.topcased.spem.uma.DomainPackage;
-import org.topcased.spem.uma.ProcessComponentPackage;
-import org.topcased.spem.uma.QualificationPackage;
-import org.topcased.spem.uma.RoleSetPackage;
-import org.topcased.spem.uma.ToolDefinitionPackage;
-import org.topcased.spem.uma.UmaFactory;
-import org.topcased.spem.uma.UmaPackage;
-import org.topcased.spem.uma.WorkProductKindPackage;
 
 
 import org.eclipse.core.runtime.Path;
@@ -118,13 +95,6 @@ import org.eclipse.ui.PartInitException;
  * @generated
  */
 public class IspemModelWizard extends Wizard implements INewWizard {
-	
-	protected SpemPackage spem = SpemPackage.eINSTANCE;
-	protected UmaPackage uma = UmaPackage.eINSTANCE;
-	
-	protected SpemFactory spemFactory = spem.getSpemFactory();
-	protected UmaFactory umaFactory = uma.getUmaFactory();
-	
 	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc -->
@@ -242,75 +212,9 @@ public class IspemModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		MethodLibrary lib = spemFactory.createMethodLibrary();
-		MethodPlugin plugin = spemFactory.createMethodPlugin();
-		plugin.setName(getModelFile().getName());
-		lib.getOwnedMethodPlugin().add(plugin);
-		//Domain Method Content Package
-		plugin.getOwnedMethodContentPackage().add(createMethodContentPackage());
-		//Method Content Package
-	
-		
-		//Process Package
-		ProcessPackage pp = spemFactory.createProcessPackage();
-		pp.setName("Processes");
-		plugin.getOwnedProcessPackage().add(pp);
-		CapabilityPatternPackage cpp = umaFactory.createCapabilityPatternPackage();
-		cpp.setName("Capability Patterns");
-		pp.getOwnedProcessMember().add(cpp);
-		ProcessComponentPackage pcp = umaFactory.createProcessComponentPackage();
-		pcp.setName("Process Components");
-		pp.getOwnedProcessMember().add(pcp);
-		DeliveryProcessPackage dpp = umaFactory.createDeliveryProcessPackage();
-		dpp.setName("Delivery Processes");
-		pp.getOwnedProcessMember().add(dpp);
-		//Configuration Package
-		ConfigurationPackage confp = umaFactory.createConfigurationPackage();
-		confp.setName("Configurations");
-		lib.setConfigurationPackage(confp);
-		return lib;
-	}
-	/**
-	 * Create a Method Content Package
-	 * 
-	 */
-	private MethodContentPackage createMethodContentPackage()
-	{
-		MethodContentPackage mp = spemFactory.createMethodContentPackage();
-		CategoryPackage standard = umaFactory.createCategoryPackage();
-		standard.setName("Standard Categories");
-		mp.getOwnedMethodContentMember().add(standard);
-		CategoryPackage custom = umaFactory.createCategoryPackage();
-		custom.setName("Custom Categories");
-		mp.getOwnedMethodContentMember().add(custom);
-		DisciplinePackage dp = umaFactory.createDisciplinePackage();
-		dp.setName("Disciplines");
-		standard.getOwnedMethodContentMember().add(dp);
-		DomainPackage domP = umaFactory.createDomainPackage();
-		domP.setName("Domains");
-		standard.getOwnedMethodContentMember().add(domP);
-		WorkProductKindPackage wkp = umaFactory.createWorkProductKindPackage();
-		wkp.setName("Work Product Kinds");
-		standard.getOwnedMethodContentMember().add(wkp);
-		QualificationPackage qp = umaFactory.createQualificationPackage();
-		qp.setName("Qualifications");
-		standard.getOwnedMethodContentMember().add(qp);
-		RoleSetPackage rsp = umaFactory.createRoleSetPackage();
-		rsp.setName("Role Sets");
-		standard.getOwnedMethodContentMember().add(rsp);
-		ToolDefinitionPackage tooldp = umaFactory.createToolDefinitionPackage();
-		tooldp.setName("Tools");		
-		standard.getOwnedMethodContentMember().add(tooldp);
-		RepresentLanguagePackage rlp = ispemFactory.createRepresentLanguagePackage();
-		rlp.setName("Representation Language");
-		standard.getOwnedMethodContentMember().add(rlp);
-		EngineeringDomainPackage engineeringdomainPkg = ispemFactory.createEngineeringDomainPackage();
-		standard.getOwnedMethodContentMember().add(engineeringdomainPkg);
-		DevelopmentMethodPackage methodPkg = ispemFactory.createDevelopmentMethodPackage();
-		standard.getOwnedMethodContentMember().add(methodPkg);
-		MetaModelPackage metamodelPkg = ispemFactory.createMetaModelPackage();
-		mp.getOwnedMethodContentMember().add(metamodelPkg);
-		return mp;
+		EClass eClass = (EClass)ispemPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		EObject rootObject = ispemFactory.create(eClass);
+		return rootObject;
 	}
 
 	/**

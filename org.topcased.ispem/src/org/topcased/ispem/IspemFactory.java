@@ -71,6 +71,15 @@ public interface IspemFactory extends EFactory {
 	WorkProductDefinition createWorkProductDefinition();
 
 	/**
+	 * Returns a new object of class '<em>ISPEM Method Library</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>ISPEM Method Library</em>'.
+	 * @generated
+	 */
+	ISPEMMethodLibrary createISPEMMethodLibrary();
+
+	/**
 	 * Returns a new object of class '<em>Artifact Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,15 +87,6 @@ public interface IspemFactory extends EFactory {
 	 * @generated
 	 */
 	ArtifactDefinition createArtifactDefinition();
-
-	/**
-	 * Returns a new object of class '<em>ISPEM</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>ISPEM</em>'.
-	 * @generated
-	 */
-	ISPEM createISPEM();
 
 	/**
 	 * Returns a new object of class '<em>Development Method</em>'.

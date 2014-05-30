@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<spem:MethodLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activity="http://www.thalesgroup.com/spem/2.0/activity" xmlns:ispem="http://www.topcased.org/ispem" xmlns:spem="http://www.thalesgroup.com/spem/2.0" xmlns:uma="http://www.thalesgroup.com/spem/2.0/uma">
-  <ownedMethodPlugin name="My.ispem">
-    <ownedMethodContentPackage>
+<ispem:ISPEMMethodLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activity="http://www.thalesgroup.com/spem/2.0/activity" xmlns:ispem="http://www.topcased.org/ispem" xmlns:spem="http://www.thalesgroup.com/spem/2.0" xmlns:uma="http://www.thalesgroup.com/spem/2.0/uma">
+  <ownedMethodPlugin name="%escapedName%.ispem">
+    <ownedMethodContentPackage  name="Method Content">
       <ownedMethodContentMember xsi:type="uma:CategoryPackage" name="Standard Categories">
         <ownedMethodContentMember xsi:type="uma:DisciplinePackage" name="Disciplines"/>
         <ownedMethodContentMember xsi:type="uma:DomainPackage" name="Domains"/>

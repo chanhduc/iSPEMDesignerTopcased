@@ -23,6 +23,8 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.topcased.ispem.DevelopmentMethodContentPackage;
+import org.topcased.ispem.DomainContentPackage;
 import org.topcased.ispem.IspemFactory;
 
 import org.topcased.spem.MethodContentPackage;
@@ -30,6 +32,7 @@ import org.topcased.spem.SpemFactory;
 import org.topcased.spem.SpemPackage;
 
 import org.topcased.spem.uma.UmaFactory;
+import org.topcased.spem.uma.impl.UmaFactoryImpl;
 
 /**
  * This is the item provider adapter for a {@link org.topcased.spem.MethodContentPackage} object.
@@ -181,81 +184,18 @@ public class MethodContentPackageItemProvider
 				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
 				 SpemFactory.eINSTANCE.createGuidance()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 SpemFactory.eINSTANCE.createToolDefinition()));
+	
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 SpemFactory.eINSTANCE.createTaskDefinition()));
+	
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 SpemFactory.eINSTANCE.createWorkProductDefinition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 SpemFactory.eINSTANCE.createRoleDefinition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 SpemFactory.eINSTANCE.createWorkProductDefinitionRelationship()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 SpemFactory.eINSTANCE.createDefault_TaskDefinitionPerformer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 SpemFactory.eINSTANCE.createDefault_ResponsibilityAssignment()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 SpemFactory.eINSTANCE.createQualification()));
-
+	
 		newChildDescriptors.add
 			(createChildParameter
 				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
 				 SpemFactory.eINSTANCE.createMethodContentPackage()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createEngineeringDomain()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createToolDefinition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createViewpoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createTaskDefinition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createWorkProductDefinition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createDevelopmentMethod()));
-
+	
 		newChildDescriptors.add
 			(createChildParameter
 				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
@@ -271,60 +211,44 @@ public class MethodContentPackageItemProvider
 				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
 				 IspemFactory.eINSTANCE.createArtifactDefinitionPackage()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createDomainTaskDefinition()));
 
+	
+		//Initialise Domain Content Package
+		 DomainContentPackage domainContentPkg = IspemFactory.eINSTANCE.createDomainContentPackage();
+			
+			
+		 UmaFactory umaFactory = new UmaFactoryImpl();
+			
+		 domainContentPkg.getOwnedMethodContentMember().add(umaFactory.createTaskDefinitionPackage());
+		 domainContentPkg.getOwnedMethodContentMember().add(umaFactory.createWorkProductDefinitionPackage());
+		 domainContentPkg.getOwnedMethodContentMember().add(umaFactory.createToolDefinitionPackage());
+		 domainContentPkg.getOwnedMethodContentMember().add(umaFactory.createRoleDefinitionPackage());
 		newChildDescriptors.add
 			(createChildParameter
 				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createMethodTaskDefinition()));
+				 domainContentPkg));
+		//Initialise Development Method Content Package
+		
+		DevelopmentMethodContentPackage developmentMethodContentPackage =  IspemFactory.eINSTANCE.createDevelopmentMethodContentPackage();
+		developmentMethodContentPackage.getOwnedMethodContentMember().add(umaFactory.createTaskDefinitionPackage());
+		developmentMethodContentPackage.getOwnedMethodContentMember().add(umaFactory.createWorkProductDefinitionPackage());
+		developmentMethodContentPackage.getOwnedMethodContentMember().add(umaFactory.createToolDefinitionPackage());
+		developmentMethodContentPackage.getOwnedMethodContentMember().add(umaFactory.createRoleDefinitionPackage());
+		newChildDescriptors.add
+			(createChildParameter
+				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
+				developmentMethodContentPackage));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createArtifactDefinition()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createDomainArtifactDefinition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createMethodArtifactDefinition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createDomainContentPackage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createDevelopmentMethodContentPackage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createLanguageArtifactDefinition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createLanguageTaskDefinition()));
+		//Initialise Development Method with language Content Package
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
 				 IspemFactory.eINSTANCE.createDevelopmentMethodWithLanguageContentPackage()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createRepresentativeLanguage()));
+
+
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -339,31 +263,6 @@ public class MethodContentPackageItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createMetaModel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createEClassesRelation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 IspemFactory.eINSTANCE.createEReferencesRelation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createChecklist()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createConcept()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
 				 UmaFactory.eINSTANCE.createCategoryPackage()));
 
 		newChildDescriptors.add
@@ -371,80 +270,13 @@ public class MethodContentPackageItemProvider
 				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
 				 UmaFactory.eINSTANCE.createCustomCategory()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createDiscipline()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createDisciplineGrouping()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createDomain()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createEstimatingConsideration()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createExample()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createPractice()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createReport()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createReusableAsset()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createRoadmap()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createTemplate()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createTermDefinition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createToolMentor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createWhitepaper()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createGuideline()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createSupportingMaterial()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -471,45 +303,22 @@ public class MethodContentPackageItemProvider
 				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
 				 UmaFactory.eINSTANCE.createDisciplinePackage()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createDomainPackage()));
+
+
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
 				 UmaFactory.eINSTANCE.createWorkProductKindPackage()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createRoleSetPackage()));
+	
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
 				 UmaFactory.eINSTANCE.createToolDefinitionPackage()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createConfigurationPackage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createRoleSet()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createQualificationPackage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SpemPackage.Literals.METHOD_CONTENT_PACKAGE__OWNED_METHOD_CONTENT_MEMBER,
-				 UmaFactory.eINSTANCE.createWorkProductKind()));
+		
 	}
 
 }

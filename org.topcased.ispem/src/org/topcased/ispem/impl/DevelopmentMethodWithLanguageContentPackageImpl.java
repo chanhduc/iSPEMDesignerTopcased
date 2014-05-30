@@ -7,18 +7,13 @@
 package org.topcased.ispem.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.topcased.ispem.DevelopmentMethod;
 import org.topcased.ispem.DevelopmentMethodWithLanguageContentPackage;
 import org.topcased.ispem.IspemPackage;
 import org.topcased.ispem.RepresentativeLanguage;
-import org.topcased.ispem.RepresentLanguage;
-
 import org.topcased.spem.impl.MethodContentPackageImpl;
 
 /**

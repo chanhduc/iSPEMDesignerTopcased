@@ -22,6 +22,22 @@ public class ProcessWFDiagramDiagramTopcasedPreferenceInitializer implements
 	 */
 	public HashMap<String, String> getDefaultPreference() {
 		HashMap<String, String> defaultProcessWFDiagramPreference = new HashMap<String, String>();
+		// Initialize the default value of the EDGE_EDGE_DEFAULT_FONT property
+		defaultProcessWFDiagramPreference
+				.put(ProcessWFDiagramDiagramPreferenceConstants.EDGE_EDGE_DEFAULT_FONT,
+						StringConverter.asFontData("Segoe UI-regular-9")
+								.toString());
+
+		// Initialize the default value of the EDGE_EDGE_DEFAULT_FOREGROUND_COLOR property
+		defaultProcessWFDiagramPreference
+				.put(ProcessWFDiagramDiagramPreferenceConstants.EDGE_EDGE_DEFAULT_FOREGROUND_COLOR,
+						"0,0,0");
+
+		// Initialize the default value of the EDGE_EDGE_DEFAULT_ROUTER property
+		defaultProcessWFDiagramPreference
+				.put(ProcessWFDiagramDiagramPreferenceConstants.EDGE_EDGE_DEFAULT_ROUTER,
+						"ObliqueRouter");
+
 		// Initialize the default value of the ACTIVITY_DEFAULT_BACKGROUND_COLOR property 
 		defaultProcessWFDiagramPreference
 				.put(ProcessWFDiagramDiagramPreferenceConstants.ACTIVITY_DEFAULT_BACKGROUND_COLOR,
@@ -53,6 +69,11 @@ public class ProcessWFDiagramDiagramTopcasedPreferenceInitializer implements
 		defaultProcessWFDiagramPreference
 				.put(ProcessWFDiagramDiagramPreferenceConstants.WORKSEQUENCE_EDGE_DEFAULT_ROUTER,
 						"ObliqueRouter");
+
+		// Initialize the default value of the WORKSEQUENCE_LINKKIND_EDGE_OBJECT_DEFAULT_VISIBILITY property
+		defaultProcessWFDiagramPreference
+				.put(ProcessWFDiagramDiagramPreferenceConstants.WORKSEQUENCE_LINKKIND_EDGE_OBJECT_DEFAULT_VISIBILITY,
+						"true");
 
 		// Initialize the default value of the ARTIFACT_DEFAULT_BACKGROUND_COLOR property 
 		defaultProcessWFDiagramPreference

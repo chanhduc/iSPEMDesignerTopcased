@@ -32,6 +32,7 @@ import org.topcased.ispem.ENamedElementRelationKind;
 import org.topcased.ispem.EReferencesRelation;
 import org.topcased.ispem.EngineeringDomain;
 import org.topcased.ispem.EngineeringDomainPackage;
+import org.topcased.ispem.ISPEMMethodLibrary;
 import org.topcased.ispem.IspemFactory;
 import org.topcased.ispem.IspemPackage;
 import org.topcased.ispem.LanguageArtifactDefinition;
@@ -42,7 +43,7 @@ import org.topcased.ispem.MetaModelPackage;
 import org.topcased.ispem.MethodArtifactDefinition;
 import org.topcased.ispem.MethodTaskDefinition;
 import org.topcased.ispem.OntologyLinkedElement;
-import org.topcased.ispem.RepresentLanguage;
+
 import org.topcased.ispem.RepresentLanguagePackage;
 import org.topcased.ispem.RepresentativeLanguage;
 import org.topcased.ispem.TaskDefinition;
@@ -107,14 +108,14 @@ public class IspemPackageImpl extends EPackageImpl implements IspemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass artifactDefinitionEClass = null;
+	private EClass ispemMethodLibraryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass ispemEClass = null;
+	private EClass artifactDefinitionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -504,8 +505,8 @@ public class IspemPackageImpl extends EPackageImpl implements IspemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getArtifactDefinition() {
-		return artifactDefinitionEClass;
+	public EClass getISPEMMethodLibrary() {
+		return ispemMethodLibraryEClass;
 	}
 
 	/**
@@ -513,8 +514,8 @@ public class IspemPackageImpl extends EPackageImpl implements IspemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getISPEM() {
-		return ispemEClass;
+	public EClass getArtifactDefinition() {
+		return artifactDefinitionEClass;
 	}
 
 	/**
@@ -1086,7 +1087,7 @@ public class IspemPackageImpl extends EPackageImpl implements IspemPackage {
 		createEReference(workProductDefinitionEClass, WORK_PRODUCT_DEFINITION__USED_REFERENCES);
 		createEReference(workProductDefinitionEClass, WORK_PRODUCT_DEFINITION__METAMODEL);
 
-		ispemEClass = createEClass(ISPEM);
+		ispemMethodLibraryEClass = createEClass(ISPEM_METHOD_LIBRARY);
 
 		developmentMethodEClass = createEClass(DEVELOPMENT_METHOD);
 		createEReference(developmentMethodEClass, DEVELOPMENT_METHOD__SUPPORTS);
@@ -1214,7 +1215,7 @@ public class IspemPackageImpl extends EPackageImpl implements IspemPackage {
 		taskDefinitionEClass.getESuperTypes().add(theSpemPackage.getTaskDefinition());
 		workProductDefinitionEClass.getESuperTypes().add(this.getOntologyLinkedElement());
 		workProductDefinitionEClass.getESuperTypes().add(theSpemPackage.getWorkProductDefinition());
-		ispemEClass.getESuperTypes().add(theSpemPackage.getMethodLibrary());
+		ispemMethodLibraryEClass.getESuperTypes().add(theSpemPackage.getMethodLibrary());
 		developmentMethodEClass.getESuperTypes().add(this.getOntologyLinkedElement());
 		developmentMethodEClass.getESuperTypes().add(theSpemPackage.getCategory());
 		engineeringDomainPackageEClass.getESuperTypes().add(theSpemPackage.getMethodContentPackage());
@@ -1267,7 +1268,7 @@ public class IspemPackageImpl extends EPackageImpl implements IspemPackage {
 		initEReference(getWorkProductDefinition_UsedReferences(), theEcorePackage.getEReference(), null, "usedReferences", null, 0, -1, WorkProductDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWorkProductDefinition_Metamodel(), this.getMetaModel(), null, "metamodel", null, 0, 1, WorkProductDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(ispemEClass, org.topcased.ispem.ISPEM.class, "ISPEM", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(ispemMethodLibraryEClass, ISPEMMethodLibrary.class, "ISPEMMethodLibrary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(developmentMethodEClass, DevelopmentMethod.class, "DevelopmentMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDevelopmentMethod_Supports(), this.getViewpoint(), null, "supports", null, 0, -1, DevelopmentMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

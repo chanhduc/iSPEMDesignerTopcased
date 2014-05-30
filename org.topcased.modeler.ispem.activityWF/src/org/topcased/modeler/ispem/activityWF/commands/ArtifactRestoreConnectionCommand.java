@@ -113,7 +113,7 @@ public class ArtifactRestoreConnectionCommand extends
 						if (edge instanceof GraphEdge) {
 							ProcessParameterOutEdgeCreationCommand cmd = new ProcessParameterOutEdgeCreationCommand(
 									getEditDomain(), (GraphEdge) edge, srcElt,
-									false);
+									true);
 							cmd.setTarget(targetElt);
 							add(cmd);
 						}
@@ -153,7 +153,7 @@ public class ArtifactRestoreConnectionCommand extends
 						if (edge instanceof GraphEdge) {
 							ProcessParameterInEdgeCreationCommand cmd = new ProcessParameterInEdgeCreationCommand(
 									getEditDomain(), (GraphEdge) edge, srcElt,
-									false);
+									true);
 							cmd.setTarget(targetElt);
 							add(cmd);
 						}
@@ -193,7 +193,7 @@ public class ArtifactRestoreConnectionCommand extends
 						if (edge instanceof GraphEdge) {
 							ProcessParameterInOutEdgeCreationCommand cmd = new ProcessParameterInOutEdgeCreationCommand(
 									getEditDomain(), (GraphEdge) edge, srcElt,
-									false);
+									true);
 							cmd.setTarget(targetElt);
 							add(cmd);
 						}

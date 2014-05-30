@@ -47,6 +47,10 @@ public class IspemEditor extends Modeler {
 				.add(new org.topcased.spem.uma.provider.UmaItemProviderAdapterFactory());
 		factories
 				.add(new org.topcased.modeler.ispem.providers.UmaModelerProviderAdapterFactory());
+		factories
+				.add(new org.topcased.spem.activity.provider.ActivityItemProviderAdapterFactory());
+		factories
+				.add(new org.topcased.modeler.ispem.providers.ActivityModelerProviderAdapterFactory());
 
 		factories.addAll(super.getAdapterFactories());
 

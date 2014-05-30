@@ -1269,24 +1269,14 @@ public interface IspemPackage extends EPackage {
 	int WORK_PRODUCT_DEFINITION_FEATURE_COUNT = ONTOLOGY_LINKED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
-	 * The meta object id for the '{@link org.topcased.ispem.impl.ArtifactDefinitionImpl <em>Artifact Definition</em>}' class.
+	 * The meta object id for the '{@link org.topcased.ispem.impl.ISPEMMethodLibraryImpl <em>ISPEM Method Library</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.topcased.ispem.impl.ArtifactDefinitionImpl
-	 * @see org.topcased.ispem.impl.IspemPackageImpl#getArtifactDefinition()
+	 * @see org.topcased.ispem.impl.ISPEMMethodLibraryImpl
+	 * @see org.topcased.ispem.impl.IspemPackageImpl#getISPEMMethodLibrary()
 	 * @generated
 	 */
-	int ARTIFACT_DEFINITION = 30;
-
-	/**
-	 * The meta object id for the '{@link org.topcased.ispem.impl.ISPEMImpl <em>ISPEM</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.topcased.ispem.impl.ISPEMImpl
-	 * @see org.topcased.ispem.impl.IspemPackageImpl#getISPEM()
-	 * @generated
-	 */
-	int ISPEM = 5;
+	int ISPEM_METHOD_LIBRARY = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1295,7 +1285,7 @@ public interface IspemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISPEM__NAME = SpemPackage.METHOD_LIBRARY__NAME;
+	int ISPEM_METHOD_LIBRARY__NAME = SpemPackage.METHOD_LIBRARY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Owned Method Plugin</b></em>' containment reference list.
@@ -1304,7 +1294,7 @@ public interface IspemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISPEM__OWNED_METHOD_PLUGIN = SpemPackage.METHOD_LIBRARY__OWNED_METHOD_PLUGIN;
+	int ISPEM_METHOD_LIBRARY__OWNED_METHOD_PLUGIN = SpemPackage.METHOD_LIBRARY__OWNED_METHOD_PLUGIN;
 
 	/**
 	 * The feature id for the '<em><b>Predefined Configuration</b></em>' containment reference list.
@@ -1313,7 +1303,7 @@ public interface IspemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISPEM__PREDEFINED_CONFIGURATION = SpemPackage.METHOD_LIBRARY__PREDEFINED_CONFIGURATION;
+	int ISPEM_METHOD_LIBRARY__PREDEFINED_CONFIGURATION = SpemPackage.METHOD_LIBRARY__PREDEFINED_CONFIGURATION;
 
 	/**
 	 * The feature id for the '<em><b>Configuration Package</b></em>' containment reference.
@@ -1322,16 +1312,26 @@ public interface IspemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISPEM__CONFIGURATION_PACKAGE = SpemPackage.METHOD_LIBRARY__CONFIGURATION_PACKAGE;
+	int ISPEM_METHOD_LIBRARY__CONFIGURATION_PACKAGE = SpemPackage.METHOD_LIBRARY__CONFIGURATION_PACKAGE;
 
 	/**
-	 * The number of structural features of the '<em>ISPEM</em>' class.
+	 * The number of structural features of the '<em>ISPEM Method Library</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISPEM_FEATURE_COUNT = SpemPackage.METHOD_LIBRARY_FEATURE_COUNT + 0;
+	int ISPEM_METHOD_LIBRARY_FEATURE_COUNT = SpemPackage.METHOD_LIBRARY_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.topcased.ispem.impl.ArtifactDefinitionImpl <em>Artifact Definition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.topcased.ispem.impl.ArtifactDefinitionImpl
+	 * @see org.topcased.ispem.impl.IspemPackageImpl#getArtifactDefinition()
+	 * @generated
+	 */
+	int ARTIFACT_DEFINITION = 30;
 
 	/**
 	 * The meta object id for the '{@link org.topcased.ispem.impl.DevelopmentMethodImpl <em>Development Method</em>}' class.
@@ -5793,6 +5793,16 @@ public interface IspemPackage extends EPackage {
 	EReference getWorkProductDefinition_Metamodel();
 
 	/**
+	 * Returns the meta object for class '{@link org.topcased.ispem.ISPEMMethodLibrary <em>ISPEM Method Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>ISPEM Method Library</em>'.
+	 * @see org.topcased.ispem.ISPEMMethodLibrary
+	 * @generated
+	 */
+	EClass getISPEMMethodLibrary();
+
+	/**
 	 * Returns the meta object for class '{@link org.topcased.ispem.ArtifactDefinition <em>Artifact Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5801,16 +5811,6 @@ public interface IspemPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getArtifactDefinition();
-
-	/**
-	 * Returns the meta object for class '{@link org.topcased.ispem.ISPEM <em>ISPEM</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>ISPEM</em>'.
-	 * @see org.topcased.ispem.ISPEM
-	 * @generated
-	 */
-	EClass getISPEM();
 
 	/**
 	 * Returns the meta object for class '{@link org.topcased.ispem.DevelopmentMethod <em>Development Method</em>}'.
@@ -6569,6 +6569,16 @@ public interface IspemPackage extends EPackage {
 		EReference WORK_PRODUCT_DEFINITION__METAMODEL = eINSTANCE.getWorkProductDefinition_Metamodel();
 
 		/**
+		 * The meta object literal for the '{@link org.topcased.ispem.impl.ISPEMMethodLibraryImpl <em>ISPEM Method Library</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.topcased.ispem.impl.ISPEMMethodLibraryImpl
+		 * @see org.topcased.ispem.impl.IspemPackageImpl#getISPEMMethodLibrary()
+		 * @generated
+		 */
+		EClass ISPEM_METHOD_LIBRARY = eINSTANCE.getISPEMMethodLibrary();
+
+		/**
 		 * The meta object literal for the '{@link org.topcased.ispem.impl.ArtifactDefinitionImpl <em>Artifact Definition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6577,16 +6587,6 @@ public interface IspemPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ARTIFACT_DEFINITION = eINSTANCE.getArtifactDefinition();
-
-		/**
-		 * The meta object literal for the '{@link org.topcased.ispem.impl.ISPEMImpl <em>ISPEM</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.topcased.ispem.impl.ISPEMImpl
-		 * @see org.topcased.ispem.impl.IspemPackageImpl#getISPEM()
-		 * @generated
-		 */
-		EClass ISPEM = eINSTANCE.getISPEM();
 
 		/**
 		 * The meta object literal for the '{@link org.topcased.ispem.impl.DevelopmentMethodImpl <em>Development Method</em>}' class.

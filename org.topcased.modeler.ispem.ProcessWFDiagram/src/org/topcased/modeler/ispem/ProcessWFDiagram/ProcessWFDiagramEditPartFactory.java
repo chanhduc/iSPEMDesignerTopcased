@@ -17,7 +17,9 @@ import org.topcased.modeler.evaluator.EvaluatorException;
 import org.topcased.modeler.evaluator.extension.EvaluatorsManager;
 import org.topcased.modeler.ispem.ProcessWFDiagram.edit.ActivityEditPart;
 import org.topcased.modeler.ispem.ProcessWFDiagram.edit.ArtifactEditPart;
+import org.topcased.modeler.ispem.ProcessWFDiagram.edit.BreakdownElementEditPart;
 import org.topcased.modeler.ispem.ProcessWFDiagram.edit.DecisionNodeEditPart;
+import org.topcased.modeler.ispem.ProcessWFDiagram.edit.EdgeEditPart;
 import org.topcased.modeler.ispem.ProcessWFDiagram.edit.EndNodeEditPart;
 import org.topcased.modeler.ispem.ProcessWFDiagram.edit.ForkNodeEditPart;
 import org.topcased.modeler.ispem.ProcessWFDiagram.edit.JoinNodeEditPart;
@@ -169,6 +171,15 @@ public class ProcessWFDiagramEditPartFactory extends ModelerEditPartFactory {
 		 */
 		public NodeSpemSwitch(GraphNode node) {
 			this.node = node;
+		}
+
+		/**
+		 * @see org.topcased.spem.util.SpemSwitch#caseBreakdownElement(org.topcased.spem.BreakdownElement)
+		 * @generated
+		 */
+		public Object caseBreakdownElement(
+				org.topcased.spem.BreakdownElement object) {
+			return new BreakdownElementEditPart(node);
 		}
 
 		/**
@@ -437,6 +448,14 @@ public class ProcessWFDiagramEditPartFactory extends ModelerEditPartFactory {
 		 */
 		public EdgeActivitySwitch(GraphEdge edge) {
 			this.edge = edge;
+		}
+
+		/**
+		 * @see org.topcased.spem.activity.util.ActivitySwitch#caseEdge(org.topcased.spem.activity.Edge)
+		 * @generated
+		 */
+		public Object caseEdge(org.topcased.spem.activity.Edge object) {
+			return new EdgeEditPart(edge);
 		}
 
 		/**
