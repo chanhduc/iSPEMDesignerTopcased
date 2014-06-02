@@ -3,19 +3,19 @@ package org.topcased.modeler.ispem.utils.ontology;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Package {
+public class OntologyPackage {
 private String name;
 private String uri;
 private String description;
 private String ontologyUri="";
-private List<Package> childrens;
-public Package()
+private List<OntologyPackage> childrens;
+public OntologyPackage()
 {
 	name="";
 	uri="";
 	setOntologyUri("");
 	description="";
-	childrens= new ArrayList<Package>();
+	childrens= new ArrayList<OntologyPackage>();
 }
 public String getName() {
 	return name;
@@ -35,7 +35,7 @@ public String getDescription() {
 public void setDescription(String description) {
 	this.description = description;
 }
-public List<Package> getChildrens() {
+public List<OntologyPackage> getChildrens() {
 	return childrens;
 }
 public String getOntologyUri() {

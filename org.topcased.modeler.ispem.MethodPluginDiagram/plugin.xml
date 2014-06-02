@@ -97,5 +97,27 @@
 		</page>
     	
 	</extension>
+ <extension
+       point="org.eclipse.ui.popupMenus">
+    <objectContribution
+          id="org.topcased.modeler.ispem.MethodPluginDiagram.contribution1"
+          objectClass="org.topcased.modeler.ispem.MethodPluginDiagram.edit.MethodContentPackageEditPart">
+       <menu
+             id="org.topcased.modeler.ispem.MethodPluginDiagram.menu1"
+             label="Import From Ontology"
+             path="additions">
+          <separator
+                name="group1">
+          </separator>
+       </menu>
+       <action
+             class="org.topcased.modeler.ispem.MethodPluginDiagram.actions.ImportMethodContentFromOntology"
+             enablesFor="1"
+             id="org.topcased.modeler.ispem.MethodPluginDiagram.newAction"
+             label="Import Method Content"
+             menubarPath="org.topcased.modeler.ispem.MethodPluginDiagram.menu1/group1">
+       </action>
+    </objectContribution>
+ </extension>
 
 </plugin>

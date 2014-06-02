@@ -37,6 +37,9 @@ public class MethodContentPackageFigure extends org.topcased.draw2d.figures.Pack
      */
     protected ILabel createLabel()
     {
-        return new ComposedLabel(new Label(), new EditableLabel(), new Label(), false);
+    	ComposedLabel label = new ComposedLabel(new Label(), new EditableLabel(), new Label(), false);
+        
+    	
+        return label;
     }
 }

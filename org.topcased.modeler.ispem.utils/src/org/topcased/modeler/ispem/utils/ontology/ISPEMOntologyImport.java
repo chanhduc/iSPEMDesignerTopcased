@@ -851,14 +851,14 @@ public List<RepresentativeLanguage> getRepresentLanguages(MetaModelPackage metam
 		return rs;
 	}
 //Package feature
-	public List<Package> getDomainPackages()
+	public List<OntologyPackage> getDomainPackages()
 	{
-		List<Package> rs = new ArrayList<Package>();
+		List<OntologyPackage> rs = new ArrayList<OntologyPackage>();
 		String domainPackageUri = ispemOntologyBaseUrl+"#DomainPackage";
 		List<Statement> statements = RepositoryHelper.queryObject(domainPackageUri);
 		for (Statement s:statements)
 		{
-			Package domain = new Package();
+			OntologyPackage domain = new OntologyPackage();
 			domain.setUri(s.getSubject().stringValue());
 			List<Statement> sts = RepositoryHelper.querySubject(s.getSubject().stringValue());
 			for (Statement s2:sts)
@@ -880,14 +880,14 @@ public List<RepresentativeLanguage> getRepresentLanguages(MetaModelPackage metam
 		}
 		return rs;
 	}
-public List<Package> getMethodPackages(String domainUri)
+public List<OntologyPackage> getMethodPackages(String domainUri)
 {
-	List<Package> list = new ArrayList<Package>();
+	List<OntologyPackage> list = new ArrayList<OntologyPackage>();
 	String packageContains = ispemOntologyBaseUrl+"#DomainPackage_contains";
 	List<Statement> statements = RepositoryHelper.query(domainUri,packageContains);
 	for (Statement s:statements)
 	{
-		Package domain = new Package();
+		OntologyPackage domain = new OntologyPackage();
 		domain.setUri(s.getObject().stringValue());
 		List<Statement> sts = RepositoryHelper.querySubject(s.getObject().stringValue());
 		for (Statement s2:sts)
@@ -1010,7 +1010,7 @@ public Set<OWLIndividual> getContainedElement(OWLIndividual indiPackage)
 	rs = indiPackage.getObjectPropertyValues(propContains, ont);
 	return rs;
 }
-public DomainContentPackage importDomainPackage(Package domainPkg, MethodContentPackage rootPackage) throws OWLOntologyCreationException
+public DomainContentPackage importDomainPackage(OntologyPackage domainPkg, MethodContentPackage rootPackage) throws OWLOntologyCreationException
 {
 	
 		//createPackage
@@ -1076,7 +1076,7 @@ public DomainContentPackage importDomainPackage(Package domainPkg, MethodContent
 	tdp.getOwnedMethodContentMember().addAll(getDomainTaskDefinitions(containedElements, engineeringDomains,listAD));
 	return mp;
 }
-public MethodContentPackage importMethodPackage(Package methodPkg, DomainContentPackage domainPkg, MethodContentPackage rootPkg) throws ExecutionException, OWLOntologyCreationException
+public MethodContentPackage importMethodPackage(OntologyPackage methodPkg, DomainContentPackage domainPkg, MethodContentPackage rootPkg) throws ExecutionException, OWLOntologyCreationException
 {
 
 	//createPackage
