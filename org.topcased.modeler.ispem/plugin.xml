@@ -64,6 +64,14 @@
              model="templates/common/%name%.ispem"
              name="Common">
        </template>
+       <template
+             di="templates/base_plugin/%name%.ispemdi"
+             editorId="org.topcased.modeler.ispem.editor.IspemEditor"
+             id="org.topcased.modeler.ispem.templates.BasePlugin"
+             isDiagram="false"
+             model="templates/base_plugin/%name%.ispem"
+             name="Spem base plugin">
+       </template>
     </extension>
 	
 </plugin>

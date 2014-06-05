@@ -51,6 +51,7 @@ import org.topcased.modeler.requests.RestoreConnectionsRequest;
 import org.topcased.modeler.utils.Utils;
 import org.topcased.spem.Activity;
 import org.topcased.spem.BreakdownElement;
+import org.topcased.spem.Default_ResponsibilityAssignment;
 import org.topcased.spem.Default_TaskDefinitionParameter;
 import org.topcased.spem.Default_TaskDefinitionPerformer;
 import org.topcased.spem.MethodContentElement;
@@ -60,6 +61,7 @@ import org.topcased.spem.MethodPlugin;
 import org.topcased.spem.ProcessElement;
 import org.topcased.spem.ProcessParameter;
 import org.topcased.spem.ProcessPerformer;
+import org.topcased.spem.ProcessResponsibilityAssignment;
 import org.topcased.spem.RoleDefinition;
 import org.topcased.spem.RoleUse;
 import org.topcased.spem.SpemFactory;
@@ -72,10 +74,11 @@ import org.topcased.spem.impl.SpemFactoryImpl;
 import org.topcased.spem.impl.TaskUseImpl;
 import org.topcased.spem.provider.SpemItemProviderAdapterFactory;
 import org.topcased.spem.uma.TaskDefinitionPackage;
+import org.topcased.spem.uma.WorkProductDefinitionPackage;
 import org.topcased.spem.util.SpemAdapterFactory;
 import org.topcased.tabbedproperties.providers.TabbedPropertiesLabelProvider;
 
-public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
+public class ReuseWorkProductDefinitionAction implements IObjectActionDelegate {
 
 	private Shell shell;
 	
@@ -98,7 +101,7 @@ public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
 	 */
 	private MethodContentPackage methodContentPkg;
 	
-	public ReuseTaskDefinitionAction() {
+	public ReuseWorkProductDefinitionAction() {
 		super();
 	}
 
@@ -119,7 +122,7 @@ public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
 			if(((org.topcased.ispem.Activity) activity).getContext()!=null)
 			{
 			org.topcased.ispem.Activity ispemActivity = (org.topcased.ispem.Activity)activity;
-			ShowContextTaskDefinitionSelectionDialog(getRelatedEngineeringDomainPkg(ispemActivity.getContext()));
+			ShowContextWorkProductDefinitionSelectionDialog(getRelatedEngineeringDomainPkg(ispemActivity.getContext()));
 			//modeler.refreshActiveDiagram();
 			return;
 			}
@@ -128,7 +131,7 @@ public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
 		
 		if(activity instanceof org.topcased.spem.Activity)
 		{
-			ShowTaskDefinitionSelectionDialog();
+			ShowWorkProductDefinitionSelectionDialog();
 			modeler.refreshActiveDiagram();
 		}
 		
@@ -181,18 +184,18 @@ public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
 	/**
 	 * Get all Task Definition 
 	 */
-	private List<TaskDefinition> getAllTaskDefinition(MethodContentPackage methodContentPkg)
+	private List<WorkProductDefinition> getAllWorkProductDefinition(MethodContentPackage methodContentPkg)
 	{
-		List<TaskDefinition> lstTaskDefinition = new ArrayList<TaskDefinition>();
+		List<WorkProductDefinition> lstWPDefinition = new ArrayList<WorkProductDefinition>();
 		TreeIterator<EObject> elements = methodContentPkg.eAllContents();
 		while (elements.hasNext()) {
 			EObject element = elements.next();
-			if (element instanceof TaskDefinition) {
-				TaskDefinition taskDef = (TaskDefinition) element;
-				lstTaskDefinition.add(taskDef);
+			if (element instanceof WorkProductDefinition) {
+				WorkProductDefinition wpDef = (WorkProductDefinition) element;
+				lstWPDefinition.add(wpDef);
 			}
 		}
-		return lstTaskDefinition;
+		return lstWPDefinition;
 	}
 	
 	/**
@@ -217,38 +220,38 @@ public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
 	/**
 	 * Create Task Use
 	 */
-	private TaskUse createTaskUse(TaskDefinition taskDefinition)
+	private WorkProductUse createWPUse(WorkProductDefinition wpDefinition)
 	{
-		TaskUse taskUse = null;
+		WorkProductUse wpUse = null;
 		for (BreakdownElement element : (List<BreakdownElement>)activity.getNestedBreakdownElement())
 		{
-			if (element instanceof TaskUse) {
-				taskUse = (TaskUse) element;
-				if (taskUse.getTask()== taskDefinition)
+			if (element instanceof WorkProductUse) {
+				wpUse = (WorkProductUse) element;
+				if (wpUse.getWorkProduct()== wpDefinition)
 				{
-					return taskUse;
+					return wpUse;
 				}
 			}
 		}
 		SpemFactory spemFactory = new SpemFactoryImpl();
-		taskUse = spemFactory.createTaskUse();
-		taskUse.setName(taskDefinition.getName()+ " use");
-		taskUse.setTask(taskDefinition);
-		activity.getNestedBreakdownElement().add(taskUse);
+		wpUse = spemFactory.createWorkProductUse();
+		wpUse.setName(wpDefinition.getName()+ " use");
+		wpUse.setWorkProduct(wpDefinition);
+		activity.getNestedBreakdownElement().add(wpUse);
 		
-		//Create TaskUse Node
+		//Create WordProductUse Node
 		ICreationUtils factory = modeler.getActiveConfiguration().getCreationUtils();
-		GraphElement graphElement = factory.createGraphElement(taskUse);
-		graphElement.setPosition(new Point(50,50));
+		GraphElement graphElement = factory.createGraphElement(wpUse);
+		
 		modeler.getActiveDiagram().getContained().add(graphElement);
 		
 		
-		return taskUse;
+		return wpUse;
 	}
 	/**
 	 * Display context Task Definition selection dialog
 	 */
-	private void ShowContextTaskDefinitionSelectionDialog(DomainContentPackage domainContentPkg)
+	private void ShowContextWorkProductDefinitionSelectionDialog(DomainContentPackage domainContentPkg)
 	{
 		ElementTreeSelectionDialog dialog = new ElementTreeSelectionDialog(
 			    shell,
@@ -256,39 +259,39 @@ public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
 			    new TaskDefinitionTreeContentProvider());
 		dialog.setAllowMultiple(true);
 		
-			dialog.setTitle("Task Definition Selection");
-			dialog.setMessage("Select the one task definition in the context:");
+			dialog.setTitle("Work Product Definition Selection");
+			dialog.setMessage("Select the work product definitions in the context:");
 			dialog.setInput(domainContentPkg);
 			if(dialog.open()==Window.OK)
 			{
 				Object[] selection = dialog.getResult();
 				for(Object item:selection)
 				{
-					TaskUse taskUse = createTaskUse((TaskDefinition)item);
+					WorkProductUse wpUse = createWPUse((WorkProductDefinition)item);
 					String message = "Do you want to restore linked method contents " +
 							"(Role definition and Work product definition of the Task Use " +
-							taskUse.getName();
+							wpUse.getName();
 					if (MessageDialog.openConfirm(shell, "Restore linked method contents confirmation", message))
 					{
-					createRoleUseFromTaskUse(taskUse);
-					createArtifactFromTaskUse(taskUse);
+					createRoleUseFromWPUse(wpUse);
+					createTaskUseFromWPUse(wpUse);
 					}
-					
 				}
 			}
 	}
 	/**
 	 * Display normal Task Definition selection dialog
 	 */
-	private void ShowTaskDefinitionSelectionDialog ()
+	private void ShowWorkProductDefinitionSelectionDialog ()
 	{
-		List<TaskDefinition> lstTaskDefinition = getAllTaskDefinition(methodContentPkg);
-		if (lstTaskDefinition != null)
+		List<WorkProductDefinition> lstWorkProductDefinition = getAllWorkProductDefinition(methodContentPkg);
+		if (lstWorkProductDefinition != null)
 		{
 			// display the dialog to choose task definition
-						ChooseDialog dialog = new ChooseDialog(shell, lstTaskDefinition.toArray());
+						ChooseDialog dialog = new ChooseDialog(shell, lstWorkProductDefinition.toArray());
 					
-						dialog.setTitle("Task Definition Selection: ");
+						dialog.setTitle("Work Product Definition Selection: ");
+						dialog.setMessage("Select one work product definition to reuse.");
 						dialog.setLabelProvider(new TabbedPropertiesLabelProvider(new IspemItemProviderAdapterFactory()));
 						if (dialog.open() == Window.OK)
 						{
@@ -296,16 +299,16 @@ public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
 			 
 							if (selection != null && selection.length > 0)
 							{
-								TaskDefinition selTaskDefinition = (TaskDefinition) selection[0];
+								WorkProductDefinition selWPDefinition = (WorkProductDefinition) selection[0];
 								
-								TaskUse taskUse = createTaskUse(selTaskDefinition);
+								WorkProductUse wpUse = createWPUse(selWPDefinition);
 								String message = "Do you want to restore linked method contents " +
-										"(Role definition and Work product definition of the Task Use " +
-										taskUse.getName();
+										"(Role definition and task definition of the Work Product Use " +
+										wpUse.getName();
 								if (MessageDialog.openConfirm(shell, "Restore linked method contents confirmation", message))
 								{
-								createRoleUseFromTaskUse(taskUse);
-								createArtifactFromTaskUse(taskUse);
+								createRoleUseFromWPUse(wpUse);
+								createTaskUseFromWPUse(wpUse);
 								}
 							}
 						}
@@ -394,23 +397,23 @@ public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
 	 * 
 	 */
 	/**
-	 * Create Role use and Workproduct use from Task use
+	 * Create Role use and Task use from WorkProduct use
 	 */
-	private void createRoleUseFromTaskUse (TaskUse taskUse)
+	private void createRoleUseFromWPUse (WorkProductUse wpUse)
 	{
-		TaskDefinition taskDefinition = taskUse.getTask();
-		TaskDefinitionPackage taskDefinitionPkg = (TaskDefinitionPackage) taskDefinition.eContainer();
-		Activity activity = (Activity) taskUse.eContainer();
+		WorkProductDefinition wpDefinition = wpUse.getWorkProduct();
+		WorkProductDefinitionPackage wpDefinitionPkg = (WorkProductDefinitionPackage) wpDefinition.eContainer();
+		Activity activity = (Activity) wpUse.eContainer();
 		ICreationUtils factory = modeler.getActiveConfiguration().getCreationUtils();
-		for (MethodContentPackageableElement element : (List<MethodContentPackageableElement>)taskDefinitionPkg.getOwnedMethodContentMember())
+		for (MethodContentPackageableElement element : (List<MethodContentPackageableElement>)wpDefinitionPkg.getOwnedMethodContentMember())
 		{
-			if (element instanceof Default_TaskDefinitionPerformer) {
-				Default_TaskDefinitionPerformer taskDefPerformer = (Default_TaskDefinitionPerformer) element;
-				if(taskDefPerformer.getLinkedTaskDefinition() == taskDefinition)
+			if (element instanceof Default_ResponsibilityAssignment) {
+				Default_ResponsibilityAssignment responAssignment = (Default_ResponsibilityAssignment) element;
+				if(responAssignment.getLinkedWorkProductDefinition() == wpDefinition)
 				{
 					//Create role use if not existing
 					List<RoleUse> lstLinkedRoleUse = new ArrayList<RoleUse>();
-					List<RoleDefinition> lstRoleDefinition = taskDefPerformer.getLinkedRoleDefinition();
+					List<RoleDefinition> lstRoleDefinition = responAssignment.getLinkedRoleDefinition();
 					List<RoleDefinition> existRoleDefinitions = new ArrayList<RoleDefinition>();
  					for (BreakdownElement bdElement: (List<BreakdownElement>)activity.getNestedBreakdownElement())
 					{
@@ -435,37 +438,37 @@ public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
  							activity.getNestedBreakdownElement().add(roleUse);
  							//Create RoleUse Node
  							
- 							GraphElement graphElement = factory.createGraphElement(taskUse);
+ 							GraphElement graphElement = factory.createGraphElement(wpUse);
  							graphElement.setPosition(new Point(50,50));
  							modeler.getActiveDiagram().getContained().add(graphElement);
  						}
  					}
-					ProcessPerformer processPerformer = SpemFactoryImpl.eINSTANCE.createProcessPerformer();
-					processPerformer.setLinkedTaskUse(taskUse);
-					processPerformer.getLinkedRoleUse().addAll(lstLinkedRoleUse);
+					ProcessResponsibilityAssignment processResponAssignment = SpemFactoryImpl.eINSTANCE.createProcessResponsibilityAssignment();
+					processResponAssignment.setLinkedWorkProductUse(wpUse);
+					processResponAssignment.getLinkedRoleUse().addAll(lstLinkedRoleUse);
 					
-					activity.getNestedBreakdownElement().add(processPerformer);
+					activity.getNestedBreakdownElement().add(processResponAssignment);
 					//Create RoleUse Node
 					
-					GraphElement graphElement = factory.createGraphElement(processPerformer);
+					GraphElement graphElement = factory.createGraphElement(processResponAssignment);
 					modeler.getActiveDiagram().getContained().add(graphElement);
 					
 					RestoreConnectionsRequest request = new RestoreConnectionsRequest();
 					
 					EditPart diagramEP = modeler.getGraphicalViewer().getContents();
-					EditPart taskUseEP = null;
+					EditPart wpUseEP = null;
 				
 					for (EditPart graphElementEP : (List<EditPart>)diagramEP.getChildren())
 					{
 						
-						if(Utils.getElement((GraphElement) graphElementEP.getModel())== taskUse)
+						if(Utils.getElement((GraphElement) graphElementEP.getModel())== wpUse)
 						{
-							taskUseEP = graphElementEP;
+							wpUseEP = graphElementEP;
 							
 						}
 						
 					}
-					Command cmd = taskUseEP.getCommand(request);
+					Command cmd = wpUseEP.getCommand(request);
 					((CommandStack) modeler.getAdapter(CommandStack.class))
 					.execute(cmd);
 				
@@ -476,76 +479,85 @@ public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
 		}
 	}
 	
-	private void createArtifactFromTaskUse (TaskUse taskUse)
+	private void createTaskUseFromWPUse (WorkProductUse wpUse)
 	{
-		TaskDefinition taskDefinition = taskUse.getTask();
-		TaskDefinitionPackage taskDefinitionPkg = (TaskDefinitionPackage) taskDefinition.eContainer();
-		Activity activity = (Activity) taskUse.eContainer();
-		List<WorkProductUse> lstArtifactUse = new ArrayList<WorkProductUse>();
+		WorkProductDefinition wpDefinition = wpUse.getWorkProduct();
+		WorkProductDefinitionPackage wpDefinitionPkg = (WorkProductDefinitionPackage) wpDefinition.eContainer();
+		Activity activity = (Activity) wpUse.eContainer();
+		List<TaskUse> lstTaskUse = new ArrayList<TaskUse>();
 		ICreationUtils factory = modeler.getActiveConfiguration().getCreationUtils();
 		 for (BreakdownElement bdElement: (List<BreakdownElement>)activity.getNestedBreakdownElement())
 			{
-				if (bdElement instanceof WorkProductUse)
+				if (bdElement instanceof TaskUse)
 				{
-					WorkProductUse artifact = (WorkProductUse) bdElement;
-					lstArtifactUse.add(artifact);
+					TaskUse taskUse = (TaskUse) bdElement;
+					lstTaskUse.add(taskUse);
 				}
 			}
-		List<Default_TaskDefinitionParameter> lsTaskDefPara = taskDefinition.getOwnedTaskDefinitionParameter();
+		List<Default_TaskDefinitionParameter> lsTaskDefPara = new ArrayList<Default_TaskDefinitionParameter>();
+		//Find the related TaskDefinitions
+		TreeIterator<EObject> iteMethodContentElement = methodContentPkg.eAllContents();
+		while (iteMethodContentElement.hasNext())
+		{
+			EObject object = iteMethodContentElement.next();
+			if (object instanceof Default_TaskDefinitionParameter) {
+				Default_TaskDefinitionParameter taskDefParam = (Default_TaskDefinitionParameter) object;
+				if (taskDefParam.getParameterType() == wpDefinition)
+				{
+					lsTaskDefPara.add(taskDefParam);
+				}
+			}
+		}
 		for (Default_TaskDefinitionParameter taskDefPara : lsTaskDefPara)
 		{
 			 
-			WorkProductDefinition wpDefinition = taskDefPara.getParameterType();
-			if(wpDefinition!=null)
-			{
-				WorkProductUse artifact = null;
-				for(WorkProductUse element:lstArtifactUse)
+			TaskDefinition taskDefinition = (TaskDefinition) taskDefPara.eContainer();
+			
+				TaskUse taskUse = null;
+				for(TaskUse element:lstTaskUse)
 				{
-					if(element.getWorkProduct()==wpDefinition)
+					if(element.getTask()==taskDefinition)
 					{
-						artifact = element;
+						taskUse = element;
 						break;
 					}
 				}
-				if (artifact == null)
+				if (taskUse == null)
 				{
-					artifact = IspemFactoryImpl.eINSTANCE.createArtifact();
-					artifact.setName(wpDefinition.getName());
-					artifact.setWorkProduct(wpDefinition);
-					activity.getNestedBreakdownElement().add(artifact);
+					taskUse = SpemFactoryImpl.eINSTANCE.createTaskUse();
+					taskUse.setName(taskDefinition.getName());
+					taskUse.setTask(taskDefinition);
+					activity.getNestedBreakdownElement().add(taskUse);
 					//Create WorkProductUse Node
 					
-					GraphElement graphElement = factory.createGraphElement(artifact);
+					GraphElement graphElement = factory.createGraphElement(taskUse);
 					
 					modeler.getActiveDiagram().getContained().add(graphElement);
 					graphElement.setContainer(	modeler.getActiveDiagram());
 				}
 				ProcessParameter processParam = SpemFactoryImpl.eINSTANCE.createProcessParameter();
-				processParam.setParameterType(artifact);
+				processParam.setParameterType(wpUse);
 				processParam.setDirection(taskDefPara.getDirection());
 				taskUse.getOwnedProcessParameter().add(processParam);
+				
+				//Create graph element and restore connection
 				GraphElement graphElement = factory.createGraphElement(processParam);
 				modeler.getActiveDiagram().getContained().add(graphElement);
-				RestoreConnectionsRequest request = new RestoreConnectionsRequest();
 				
+				RestoreConnectionsRequest request = new RestoreConnectionsRequest();
 				EditPart diagramEP = modeler.getGraphicalViewer().getContents();
-				EditPart taskUseEP = null;
 				EditPart artifactEP = null;
 				for (EditPart graphElementEP : (List<EditPart>)diagramEP.getChildren())
 				{
 					
-					if(Utils.getElement((GraphElement) graphElementEP.getModel())== taskUse)
-					{
-						taskUseEP = graphElementEP;
-						
-					}
-					if(Utils.getElement((GraphElement) graphElementEP.getModel())== artifact)
+					if(Utils.getElement((GraphElement) graphElementEP.getModel())== wpUse)
 					{
 						artifactEP = graphElementEP;
 						
 					}
+					
 				}
-				Command cmd = taskUseEP.getCommand(request);
+				Command cmd = artifactEP.getCommand(request);
 				((CommandStack) modeler.getAdapter(CommandStack.class))
 				.execute(cmd);
 			
@@ -566,7 +578,7 @@ public class ReuseTaskDefinitionAction implements IObjectActionDelegate {
 				
 				
 				
-			}
+			
 			
 		
 		}

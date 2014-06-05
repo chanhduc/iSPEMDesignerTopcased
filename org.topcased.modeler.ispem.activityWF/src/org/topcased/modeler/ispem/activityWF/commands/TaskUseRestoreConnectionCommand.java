@@ -19,6 +19,7 @@ import org.topcased.spem.ProcessParameter;
 import org.topcased.spem.ProcessPerformer;
 import org.topcased.spem.RoleUse;
 import org.topcased.spem.TaskUse;
+import org.topcased.spem.WorkProductUse;
 
 /**
  * TaskUse restore connection command
@@ -52,7 +53,7 @@ public class TaskUseRestoreConnectionCommand extends
 
 				EObject eObjectTgt = Utils.getElement(graphElementTgt);
 
-				if (eObjectTgt instanceof Artifact) {
+				if (eObjectTgt instanceof WorkProductUse) {
 					if (autoRef) {
 						// autoRef not allowed
 					} else {
@@ -62,7 +63,7 @@ public class TaskUseRestoreConnectionCommand extends
 					}
 				}
 
-				if (eObjectTgt instanceof Artifact) {
+				if (eObjectTgt instanceof WorkProductUse) {
 					if (autoRef) {
 						// autoRef not allowed
 					} else {
@@ -72,7 +73,7 @@ public class TaskUseRestoreConnectionCommand extends
 					}
 				}
 
-				if (eObjectTgt instanceof Artifact) {
+				if (eObjectTgt instanceof WorkProductUse) {
 					if (autoRef) {
 						// autoRef not allowed
 					} else {
@@ -104,7 +105,7 @@ public class TaskUseRestoreConnectionCommand extends
 	private void createProcessParameterOutFromTaskUseToArtifact_ParameterType(
 			GraphElement srcElt, GraphElement targetElt) {
 		TaskUse sourceObject = (TaskUse) Utils.getElement(srcElt);
-		Artifact targetObject = (Artifact) Utils.getElement(targetElt);
+		WorkProductUse targetObject = (WorkProductUse) Utils.getElement(targetElt);
 
 		EList edgeObjectList = sourceObject.getOwnedProcessParameter();
 		for (Iterator it = edgeObjectList.iterator(); it.hasNext();) {
@@ -144,7 +145,7 @@ public class TaskUseRestoreConnectionCommand extends
 	private void createProcessParameterInFromTaskUseToArtifact_ParameterType(
 			GraphElement srcElt, GraphElement targetElt) {
 		TaskUse sourceObject = (TaskUse) Utils.getElement(srcElt);
-		Artifact targetObject = (Artifact) Utils.getElement(targetElt);
+		WorkProductUse targetObject = (WorkProductUse) Utils.getElement(targetElt);
 
 		EList edgeObjectList = sourceObject.getOwnedProcessParameter();
 		for (Iterator it = edgeObjectList.iterator(); it.hasNext();) {
@@ -184,7 +185,7 @@ public class TaskUseRestoreConnectionCommand extends
 	private void createProcessParameterInOutFromTaskUseToArtifact_ParameterType(
 			GraphElement srcElt, GraphElement targetElt) {
 		TaskUse sourceObject = (TaskUse) Utils.getElement(srcElt);
-		Artifact targetObject = (Artifact) Utils.getElement(targetElt);
+		WorkProductUse targetObject = (WorkProductUse) Utils.getElement(targetElt);
 
 		EList edgeObjectList = sourceObject.getOwnedProcessParameter();
 		for (Iterator it = edgeObjectList.iterator(); it.hasNext();) {

@@ -117,7 +117,7 @@ public class ActivityWFPaletteManager extends ModelerPaletteManager {
 						.getImageDescriptor("ROLEUSE_LARGE")));
 
 		factory = new GraphElementCreationFactory(creationUtils,
-				IspemPackage.eINSTANCE.getArtifact(), "default");
+				SpemPackage.eINSTANCE.getWorkProductUse(), "default");
 		entries.add(new ModelerCreationToolEntry("Create Artifact",
 				"Create Artifact", factory, ActivityWFImageRegistry
 						.getImageDescriptor("ARTIFACT"),

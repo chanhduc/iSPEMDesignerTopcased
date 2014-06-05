@@ -181,7 +181,13 @@ public class ActivityWFEditPartFactory extends ModelerEditPartFactory {
 		public Object caseRoleUse(org.topcased.spem.RoleUse object) {
 			return new RoleUseEditPart(node);
 		}
-
+		/**
+		 * @see org.topcased.ispem.util.IspemSwitch#caseArtifact(org.topcased.ispem.Artifact)
+		 * @generated
+		 */
+		public Object caseWorkProductUse (org.topcased.spem.WorkProductUse object) {
+			return new ArtifactEditPart(node);
+		}
 		/**
 		 * @see org.topcased.spem.util.SpemSwitch#caseBreakdownElement(org.topcased.spem.BreakdownElement)
 		 * @generated

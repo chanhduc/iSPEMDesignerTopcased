@@ -261,27 +261,15 @@
        <action
              class="org.topcased.modeler.ispem.activityWF.actions.ReuseTaskDefinitionAction"
              enablesFor="1"
-             id="org.topcased.modeler.ispem.activityWF.newAction"
+             id="org.topcased.modeler.ispem.activityWF.ReuseTaskDefinitionAction"
              label="Reuse Task Definition"
              menubarPath="org.topcased.modeler.ispem.activityWF.menu1/group1">
        </action>
-    </objectContribution>
-    <objectContribution
-          id="org.topcased.modeler.ispem.activityWF.contribution1"
-          objectClass="org.topcased.modeler.ispem.activityWF.edit.TaskUseEditPart">
-       <menu
-             id="org.topcased.modeler.ispem.activityWF.menu1"
-             label="New Submenu"
-             path="additions">
-          <separator
-                name="group1">
-          </separator>
-       </menu>
-       <action
-             class="org.topcased.modeler.ispem.activityWF.actions.GetEditPart"
+        <action
+             class="org.topcased.modeler.ispem.activityWF.actions.ReuseWorkProductDefinitionAction"
              enablesFor="1"
-             id="org.topcased.modeler.ispem.activityWF.newAction"
-             label="Get edit part"
+             id="org.topcased.modeler.ispem.activityWF.ReuseWorkProductDefinitionAction"
+             label="Reuse Work product Definition"
              menubarPath="org.topcased.modeler.ispem.activityWF.menu1/group1">
        </action>
     </objectContribution>

@@ -18,6 +18,7 @@ import org.topcased.modeler.utils.Utils;
 import org.topcased.spem.ParameterDirectionKind;
 import org.topcased.spem.ProcessParameter;
 import org.topcased.spem.TaskUse;
+import org.topcased.spem.WorkProductUse;
 
 /**
  * Artifact restore connection command
@@ -43,7 +44,7 @@ public class ArtifactRestoreConnectionCommand extends
 		GraphElement graphElementSrc = getGraphElement();
 		EObject eObjectSrc = Utils.getElement(graphElementSrc);
 
-		if (eObjectSrc instanceof Artifact) {
+		if (eObjectSrc instanceof WorkProductUse) {
 			for (GraphElement graphElementTgt : getAllGraphElements()) {
 				boolean autoRef = graphElementTgt.equals(graphElementSrc);
 
@@ -91,7 +92,7 @@ public class ArtifactRestoreConnectionCommand extends
 	private void createProcessParameterOutFromTaskUseToArtifact_ParameterType(
 			GraphElement srcElt, GraphElement targetElt) {
 		TaskUse sourceObject = (TaskUse) Utils.getElement(srcElt);
-		Artifact targetObject = (Artifact) Utils.getElement(targetElt);
+		WorkProductUse targetObject = (WorkProductUse) Utils.getElement(targetElt);
 
 		EList edgeObjectList = sourceObject.getOwnedProcessParameter();
 		for (Iterator it = edgeObjectList.iterator(); it.hasNext();) {
@@ -131,7 +132,7 @@ public class ArtifactRestoreConnectionCommand extends
 	private void createProcessParameterInFromTaskUseToArtifact_ParameterType(
 			GraphElement srcElt, GraphElement targetElt) {
 		TaskUse sourceObject = (TaskUse) Utils.getElement(srcElt);
-		Artifact targetObject = (Artifact) Utils.getElement(targetElt);
+		WorkProductUse targetObject = (WorkProductUse) Utils.getElement(targetElt);
 
 		EList edgeObjectList = sourceObject.getOwnedProcessParameter();
 		for (Iterator it = edgeObjectList.iterator(); it.hasNext();) {
@@ -171,7 +172,7 @@ public class ArtifactRestoreConnectionCommand extends
 	private void createProcessParameterInOutFromTaskUseToArtifact_ParameterType(
 			GraphElement srcElt, GraphElement targetElt) {
 		TaskUse sourceObject = (TaskUse) Utils.getElement(srcElt);
-		Artifact targetObject = (Artifact) Utils.getElement(targetElt);
+		WorkProductUse targetObject = (WorkProductUse) Utils.getElement(targetElt);
 
 		EList edgeObjectList = sourceObject.getOwnedProcessParameter();
 		for (Iterator it = edgeObjectList.iterator(); it.hasNext();) {

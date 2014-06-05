@@ -30,8 +30,8 @@ import org.openrdf.rio.rdfxml.RDFXMLWriter;
 import com.hp.hpl.jena.vocabulary.OWL;
 
 public class RepositoryHelper {
-	static String SERVER="http://localhost:8080/openrdf-sesame";
-	static String REPOSITORY_ID="ProcessPackage";
+	static String SERVER="http://processontology-ispem.rhcloud.com//openrdf-sesame";
+	static String REPOSITORY_ID = "ProcessPackage";
 	static String LIBRARY_REPOSITORY_ID="LibraryPackage";
 	static String ISPEM_METACLASS_CONTEXT="http://www.ispem.org/ontology/ispem.owl";
 	static String METAMODEL_METACLASS_CONTEXT="http://www.eclipse.org/emf/2002/Ecore#ecore";

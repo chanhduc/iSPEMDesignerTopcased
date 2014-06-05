@@ -24,7 +24,7 @@
     </paletteCategories>
   </palette>
   <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_eh3-oMc_EeO5Rf5NqdHTYw" object="_7HR2cMcLEeOkFebLjfx5SQ" type="Graphic With Bottom Label" superType="_kGq9QM18EeOd2cd42jCqqw"/>
-  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_GFbBYMdAEeO5Rf5NqdHTYw" object="_DCKCUMcMEeOkFebLjfx5SQ" type="Graphic With Bottom Label"/>
+  <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_GFbBYMdAEeO5Rf5NqdHTYw" object="_f6E_cOzVEeOqJe33hIQmwg" type="Graphic With Bottom Label"/>
   <parts xsi:type="diagramconfigurator:NodePartConfiguration" xmi:id="_KLNLAMdAEeO5Rf5NqdHTYw" object="_G11IQMcMEeOkFebLjfx5SQ" type="Graphic With Bottom Label"/>
   <parts xsi:type="diagramconfigurator:EdgePartConfiguration" xmi:id="_JQpf4MdDEeO5Rf5NqdHTYw" object="_Ng9l4MdAEeO5Rf5NqdHTYw" presentation="artifactOut" lineWidth="2" prefix="ProcessParameterOut" targetDecoration="ARROW">
     <constraint xmi:id="_wZ5MMNQ8EeOJgrND0ItdrQ" language="ocl" rule="self.direction = ParameterDirectionKind::out"/>
@@ -121,6 +121,9 @@
   </objects>
   <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="__NU28M17EeOd2cd42jCqqw">
     <genClass href="Models/ispem.genmodel#//spem/BreakdownElement"/>
+  </objects>
+  <objects xsi:type="diagramconfigurator:ModelObjectConfiguration" xmi:id="_f6E_cOzVEeOqJe33hIQmwg">
+    <genClass href="Models/ispem.genmodel#//spem/WorkProductUse"/>
   </objects>
   <genModel href="Models/ispem.genmodel#/"/>
   <templateRootObject href="Models/ispem.genmodel#//ispem/Activity"/>

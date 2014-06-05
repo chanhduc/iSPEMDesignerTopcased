@@ -129,7 +129,13 @@ public class ActivityWFCreationUtils extends AbstractCreationUtils {
 			}
 			return null;
 		}
-
+		
+		public Object caseWorkProductUse(org.topcased.spem.WorkProductUse object) {
+		
+				return createGraphElementArtifact(object, presentation);
+			
+		
+		}
 		/**
 		 * @see org.topcased.spem.util.SpemSwitch#caseProcessParameter(org.topcased.spem.ProcessParameter)
 		 * @personalised
@@ -410,7 +416,7 @@ public class ActivityWFCreationUtils extends AbstractCreationUtils {
 	 * @generated
 	 */
 	protected GraphElement createGraphElementArtifact(
-			org.topcased.ispem.Artifact element, String presentation) {
+			org.topcased.spem.WorkProductUse element, String presentation) {
 		return createGraphNode(element, presentation);
 	}
 
