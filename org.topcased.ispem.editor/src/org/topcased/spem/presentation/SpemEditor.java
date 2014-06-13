@@ -102,6 +102,8 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
+import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
+import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
@@ -162,6 +164,7 @@ import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
+import org.topcased.ispem.presentation.IspemEditor;
 import org.topcased.ispem.presentation.IspemEditorPlugin;
 
 import org.topcased.ispem.provider.IspemItemProviderAdapterFactory;
@@ -176,10 +179,17 @@ import org.topcased.spem.uma.provider.UmaItemProviderAdapterFactory;
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
+ * @implements ITabbedPropertySheetPageContributor
  */
 public class SpemEditor
 	extends MultiPageEditorPart
-	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
+	implements IEditingDomainProvider, ISelectionProvider,
+	IMenuListener, IViewerProvider, IGotoMarker,ITabbedPropertySheetPageContributor {
+	/**
+	 * @generated NOT
+	 */
+	private static final String PROPERTIES_CONTRIBUTOR = "org.topcased.ispem.properties";
+
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
@@ -224,9 +234,9 @@ public class SpemEditor
 	 * This is the property sheet page.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected PropertySheetPage propertySheetPage;
+	protected TabbedPropertySheetPage propertySheetPage;
 
 	/**
 	 * This is the viewer that shadows the selection in the content outline.
@@ -1366,26 +1376,14 @@ public class SpemEditor
 	 * This accesses a cached version of the property sheet.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
-		if (propertySheetPage == null) {
-			propertySheetPage =
-				new ExtendedPropertySheetPage(editingDomain) {
-					public void setSelectionToViewer(List selection) {
-						SpemEditor.this.setSelectionToViewer(selection);
-						SpemEditor.this.setFocus();
-					}
-
-					public void setActionBars(IActionBars actionBars) {
-						super.setActionBars(actionBars);
-						getActionBarContributor().shareGlobalActions(this, actionBars);
-					}
-				};
-			propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
-		}
-
-		return propertySheetPage;
+		 if (propertySheetPage == null || propertySheetPage.getControl().isDisposed()) {
+		     AdapterFactory adaFactory = editingDomain.getAdapterFactory();
+			 propertySheetPage = new TabbedPropertySheetPage(SpemEditor.this);
+		     }
+		    return propertySheetPage;
 	}
 
 	/**
@@ -1787,5 +1785,11 @@ public class SpemEditor
 	 */
 	protected boolean showOutlineView() {
 		return true;
+	}
+
+	@Override
+	public String getContributorId() {
+		// TODO Auto-generated method stub
+		return PROPERTIES_CONTRIBUTOR;
 	}
 }

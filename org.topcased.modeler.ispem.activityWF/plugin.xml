@@ -14,6 +14,7 @@
    <extension point="org.topcased.modeler.diagrams">
       <diagram
             configuration="org.topcased.modeler.ispem.activityWF.ActivityWFConfiguration"
+            editorID="org.topcased.modeler.ispem.editor.IspemEditor"
             id="org.topcased.modeler.ispem.activityWF"
             name="Activity Workflow">
          <enableFor class="org.topcased.ispem.Activity"/>

@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteEntry;
+import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gef.requests.CreationFactory;
 import org.topcased.ispem.IspemPackage;
 import org.topcased.modeler.editor.GraphElementCreationFactory;
@@ -15,6 +16,8 @@ import org.topcased.modeler.editor.ICreationUtils;
 import org.topcased.modeler.editor.palette.ModelerConnectionCreationToolEntry;
 import org.topcased.modeler.editor.palette.ModelerCreationToolEntry;
 import org.topcased.modeler.editor.palette.ModelerPaletteManager;
+import org.topcased.modeler.ispem.activityWF.tools.ReuseTaskDefinitionTool;
+import org.topcased.modeler.ispem.activityWF.tools.ReuseWorkProductDefinitionTool;
 import org.topcased.spem.SpemPackage;
 import org.topcased.spem.activity.ActivityPackage;
 
@@ -25,6 +28,8 @@ import org.topcased.spem.activity.ActivityPackage;
  */
 public class ActivityWFPaletteManager extends ModelerPaletteManager {
 	// declare all the palette categories of the diagram
+	
+	private PaletteDrawer reuseDrawer;
 	/**
 	 * @generated
 	 */
@@ -64,6 +69,7 @@ public class ActivityWFPaletteManager extends ModelerPaletteManager {
 	 * @generated
 	 */
 	protected void createCategories() {
+		createReuseDrawer();
 		createNodeDrawer();
 		createProcessParameterDrawer();
 		createProcessPerformerDrawer();
@@ -77,7 +83,9 @@ public class ActivityWFPaletteManager extends ModelerPaletteManager {
 	 */
 	protected void updateCategories() {
 		// deletion of the existing categories and creation of the updated categories
-
+		getRoot().remove(reuseDrawer);
+		createReuseDrawer();
+		
 		getRoot().remove(nodeDrawer);
 		createNodeDrawer();
 
@@ -90,7 +98,24 @@ public class ActivityWFPaletteManager extends ModelerPaletteManager {
 		getRoot().remove(edgeDrawer);
 		createEdgeDrawer();
 	}
-
+	
+	/**
+	 * Createsthe Palette container containing all the Palette entries for each figure.
+	 */
+	private void createReuseDrawer()
+	{
+		reuseDrawer = new PaletteDrawer("Reuse", null);
+		List<PaletteEntry> entries = new ArrayList<PaletteEntry>();
+		entries.add(new ToolEntry("Reuse Task Definition", "Click on the diagram to reuse",
+				ActivityWFImageRegistry.getImageDescriptor("TASKUSE"),
+				ActivityWFImageRegistry.getImageDescriptor("TASKUSE_LARGE"),ReuseTaskDefinitionTool.class){});
+		entries.add(new ToolEntry("Reuse Work Product Definition", "Click on the diagram to reuse",
+				ActivityWFImageRegistry.getImageDescriptor("ARTIFACT"),
+				ActivityWFImageRegistry.getImageDescriptor("ARTIFACT_LARGE"),ReuseWorkProductDefinitionTool.class){});
+		
+		reuseDrawer.addAll(entries);
+		getRoot().add(reuseDrawer);
+	}
 	/**
 	 * Creates the Palette container containing all the Palette entries for each figure.
 	 *
@@ -99,7 +124,8 @@ public class ActivityWFPaletteManager extends ModelerPaletteManager {
 	private void createNodeDrawer() {
 		nodeDrawer = new PaletteDrawer("Node", null);
 		List<PaletteEntry> entries = new ArrayList<PaletteEntry>();
-
+		
+		
 		CreationFactory factory;
 
 		factory = new GraphElementCreationFactory(creationUtils,

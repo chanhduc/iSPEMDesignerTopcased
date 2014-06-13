@@ -9,11 +9,16 @@ import java.util.List;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ProjectScope;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.preferences.ScopedPreferenceStore;
+import org.eclipse.ui.views.properties.IPropertySheetPage;
+import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
+import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.osgi.service.prefs.BackingStoreException;
 import org.osgi.service.prefs.Preferences;
+
 import org.topcased.modeler.commands.GEFtoEMFCommandStackWrapper;
 import org.topcased.modeler.documentation.EAnnotationDocPage;
 import org.topcased.modeler.documentation.IDocPage;
@@ -24,10 +29,12 @@ import org.topcased.modeler.ispem.IspemPlugin;
  * Generated Model editor
  *
  * @generated
+ * @implement ITabbedPropertySheetPageContributor
  */
-public class IspemEditor extends Modeler {
+public class IspemEditor extends Modeler{
 
 	public static final String EDITOR_ID = "org.topcased.modeler.ispem.editor.IspemEditor";
+	
 
 	/**
 	 * @see org.topcased.modeler.editor.Modeler#getAdapterFactories()
@@ -101,5 +108,8 @@ public class IspemEditor extends Modeler {
 		}
 		return IspemPlugin.getDefault().getPreferenceStore();
 	}
+	
 
+	
+	
 }

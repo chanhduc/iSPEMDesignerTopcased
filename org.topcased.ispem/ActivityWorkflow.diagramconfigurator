@@ -39,7 +39,7 @@
     </edgeObjects>
   </parts>
   <parts xsi:type="diagramconfigurator:EdgePartConfiguration" xmi:id="_pYAEgNRBEeOJgrND0ItdrQ" object="_Ng9l4MdAEeO5Rf5NqdHTYw" presentation="artifactIn" prefix="ProcessParameterIn" sourceDecoration="ARROW">
-    <constraint xmi:id="_4i2eENRBEeOJgrND0ItdrQ" language="ocl" rule="self.direction = ParameterDirectionKind::in"/>
+    <constraint xmi:id="_4i2eENRBEeOJgrND0ItdrQ" language="ocl" rule="self.direction = ParameterDirectionKind::_in"/>
     <sourceTargetCouple xmi:id="_09F4UNRBEeOJgrND0ItdrQ" containerType="SOURCE" sourceNode="_eh3-oMc_EeO5Rf5NqdHTYw" targetNode="_GFbBYMdAEeO5Rf5NqdHTYw">
       <containerObject href="Models/ispem.genmodel#//spem/TaskUse"/>
       <containerRef xsi:type="ecore:EReference" href="Models/spem2.ecore#//TaskUse/ownedProcessParameter"/>
